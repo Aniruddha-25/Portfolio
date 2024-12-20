@@ -1,0 +1,112 @@
+/* General body styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: lightyellow;
+}
+
+/* Container styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Content section styling */
+.content {
+    display: flex;
+    align-items: center;
+}
+
+/* Image styling for Personal Photo */
+.PersonalPhoto {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15%;
+    border: 5px solid black;
+    margin-right: 50px;
+    margin-top: 25px;
+}
+
+/* Text section next to the image */
+.text-section {
+    max-width: 600px;
+}
+
+/* Navigation bar styling */
+.text-style {
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    color: white;
+    font-weight: normal;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: darkslategrey;
+    padding: 15px 0;
+    margin-bottom: 0;
+}
+
+/* Individual word link styling */
+.word {
+    display: inline-block;
+    margin-right: 25px;
+    margin-left: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for the links */
+.word:hover {
+    color: darkorange;
+}
+
+/* Responsive styling for smaller screens */
+@media only screen and (max-width: 768px) {
+    .text-style {
+        font-size: 20px;
+    }
+
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .PersonalPhoto {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+/* Project title styling */
+.ProjectTitle {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.Details_structure {
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Link styling */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: darkorange;
+}

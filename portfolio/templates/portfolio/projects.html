@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/projects.css' %}">
+    <style>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-style">
+            <span class="word"><a href="{% url 'portfolio' %}">Home</a></span>
+            <span class="word"><a href="{% url 'projects' %}">Projects</a></span>
+            <span class="word"><a href="{% url 'expert' %}">Expert</a></span>
+            <span class="word"><a href="{% url 'about' %}">About</a></span>
+            <span class="word"><a href="{% url 'contact' %}">Contact</a></span>
+        </h3>
+        <div class="content">
+            <img src="{% static 'portfolio/img/Project.gif' %}" alt="Img" class="PersonalPhoto">
+            <div class="projects-section">
+                <div class="project-block">
+                    <h2>House Price Prediction</h2>
+                    <p>A machine learning model to predict house prices based on various features.</p>
+                    <a href="https://github.com/username/house-price-prediction" target="_blank">GitHub</a> |
+                    <a href="https://house-price-prediction-demo.com" target="_blank">Live Demo</a>
+                </div>
+                <div class="project-block">
+                    <h2>Sign Language Detection</h2>
+                    <p>Using action recognition to detect and interpret sign language gestures.</p>
+                    <a href="https://github.com/username/sign-language-detection" target="_blank">GitHub</a> |
+                    <a href="https://sign-language-detection-demo.com" target="_blank">Live Demo</a>
+                </div>
+                <div class="project-block">
+                    <h2>Rockside Resto Bar Website</h2>
+                    <p>Website for Rockside Resto Bar featuring menu, events, and booking options.</p>
+                    <a href="https://github.com/username/rockside-resto-bar-website" target="_blank">GitHub</a> |
+                    <a href="https://rockside-resto-bar.com" target="_blank">Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

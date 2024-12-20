@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: lightyellow;
+    box-sizing: border-box;
+}
+
+/* Container styling */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Content section styling */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Text section next to the image */
+.text-section {
+    width: 100%;
+}
+
+/* Navigation bar styling */
+.text-style {
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    color: white;
+    font-weight: normal;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: darkslategrey;
+    padding: 15px 0;
+    margin-bottom: 0;
+}
+
+/* Individual word link styling */
+.word {
+    display: inline-block;
+    margin-right: 25px;
+    margin-left: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for the links */
+.word:hover {
+    color: darkorange;
+}
+
+/* Responsive styling for smaller screens */
+@media only screen and (max-width: 768px) {
+    .text-style {
+        font-size: 20px;
+    }
+
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Project title styling */
+.Expertise {
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Flexbox for the expertise list */
+.Details_structure {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+/* Column styling */
+.column {
+    flex: 1;
+}
+
+/* Equal distribution of text within columns */
+.column p {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.Details_structure img {
+    width: 70px;
+    height: 70px;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px black solid;
+}

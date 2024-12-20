@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'portfolio/css/expert.css' %}"
+    />
+    <style>
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .Details_structure img {
+        width: 100px;
+        height: 100px;
+        vertical-align: middle;
+        margin-right: 10px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h3 class="text-style">
+        <span class="word"><a href="{% url 'portfolio' %}">Home</a></span>
+        <span class="word"><a href="{% url 'projects' %}">Projects</a></span>
+        <span class="word"><a href="{% url 'expert' %}">Expert</a></span>
+        <span class="word"><a href="{% url 'about' %}">About</a></span>
+        <span class="word"><a href="{% url 'contact' %}">Contact</a></span>
+      </h3>
+
+      <div class="content">
+        <div class="text-section">
+          <h1 class="Expertise">Expertise</h1>
+
+          <div class="Details_structure">
+            <div class="column">
+              <p>
+                <img
+                  src="{% static 'portfolio\img\python.webp' %}"
+                  alt="Python Icon"
+                />
+                Python
+              </p>
+              <p>
+                <img
+                  src="{% static 'portfolio/img/Java.jpg' %}"
+                  alt="Java Icon"
+                />
+                Java
+              </p>
+              <p>
+                <img
+                  src="{% static 'portfolio/img/MySql.png' %}"
+                  alt="MySQL Icon"
+                />
+                MySQL
+              </p>
+              <p>
+                <img
+                  src="{% static 'portfolio/img/SolidEdge.png' %}"
+                  alt="SolidEdge Icon"
+                />
+                SolidEdge
+              </p>
+            </div>
+            <div class="column">
+              <p>
+                <img
+                  src="{% static 'portfolio/img/HTML.webp' %}"
+                  alt="HTML Icon"
+                />
+                HTML
+              </p>
+              <p>
+                <img
+                  src="{% static 'portfolio/img/CSS.png' %}"
+                  alt="CSS Icon"
+                />
+                CSS
+              </p>
+              <p>
+                <img
+                  src="{% static 'portfolio/img/JavaScript.webp' %}"
+                  alt="JavaScript Icon"
+                />
+                JavaScript
+              </p>
+
+              <p>
+                <img
+                  src="{% static 'portfolio/img/Matlab.png' %}"
+                  alt="Matlab Icon"
+                />
+                Matlab
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

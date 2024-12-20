@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/contact.css' %}">
+    <style>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .Details_structure img {
+            width: 100px;
+            height: 100px;
+            vertical-align: middle;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-style">
+            <span class="word"><a href="{% url 'portfolio' %}">Home</a></span>
+            <span class="word"><a href="{% url 'projects' %}">Projects</a></span>
+            <span class="word"><a href="{% url 'expert' %}">Expert</a></span>
+            <span class="word"><a href="{% url 'about' %}">About</a></span>
+            <span class="word"><a href="{% url 'contact' %}">Contact</a></span>
+        </h3>
+
+        <div class="content">
+            <div class="text-section">
+                <h1 class="Expertise">Contact Information</h1>
+
+                <div class="Details_structure">
+                    <div class="column">
+                        <p><img src="{% static 'portfolio/img/Phone Call.png' %}" alt="Phone No Icon"> Phone No: +918657809766</p>
+
+                        <p><img src="{% static 'portfolio/img/Gmail.webp' %}" alt="Email Icon">
+                            <a href="mailto:aniruddha.salvankar2523@gmail.com"> Email ID: aniruddha.salvankar2523@gmail.com</a>
+                        </p>
+
+                        <p><img src="{% static 'portfolio/img/Linkedin.webp' %}" alt="LinkedIn Icon">
+                            <a href="https://www.linkedin.com/in/aniruddha-salvankar-193642264/?originalSubdomain=in" target="_blank"> Linkedin ID: Aniruddha Salvankar</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/about.css' %}">
+    <style>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-style">
+            <span class="word"><a href="{% url 'portfolio' %}">Home</a></span>
+            <span class="word"><a href="{% url 'projects' %}">Projects</a></span>
+            <span class="word"><a href="{% url 'expert' %}">Expert</a></span>
+            <span class="word"><a href="{% url 'about' %}">About</a></span>
+            <span class="word"><a href="{% url 'contact' %}">Contact</a></span>
+        </h3>
+
+        <div class="content">
+            <img src="{% static 'portfolio/img/about.jpg' %}" alt="Img" class="PersonalPhoto">
+            <div class="text-section">
+                <h1 class="ProjectTitle">Projects</h1>
+                <p class="Details_structure">
+                    I’m Aniruddha Salvankar, an aspiring AI and Machine Learning engineer dedicated to enhancing my skills through hands-on projects and collaborations. With a solid foundation in Python and a passion for problem-solving, I’m eager to work on real-world applications in AI/ML.
+                    <br><br>
+                    Currently, I’m focused on learning machine learning algorithms, data analysis, and model building. My goal is to grow through practical experience.
+                    <br><br>
+                    I believe collaboration accelerates learning, and I’m always open to working on exciting projects and sharing ideas.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
