@@ -5,7 +5,7 @@ import ContactModal from "./contact_modal/contact_modal";
 function Home() {
   const [modalOpen, setModalOpen] = useState(false);
 
-  function handleOpen(e: React.MouseEvent) {
+  function handleOpen() {
     console.log("Let's Connect button clicked");
     setModalOpen(true);
   }
