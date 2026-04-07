@@ -160,6 +160,8 @@
   }
 
   .hero-meta-block:last-child {
+    margin-left: 0;
+    width: 100%;
     align-items: flex-start;
     text-align: left;
   }
