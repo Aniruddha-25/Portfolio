@@ -1,0 +1,238 @@
+/* Contact modal: full rewrite to match requested centered layout */
+.contact-model {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.contact-model-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 7, 12, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.contact-model-card {
+  position: relative;
+  z-index: 12001;
+  width: min(560px, 92vw);
+  border-radius: 18px;
+  padding: 28px 18px 18px;
+  background: linear-gradient(180deg, rgba(34, 36, 44, 0.86), rgba(14, 16, 21, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+}
+
+.contact-model-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #f0f2f8;
+  font-size: 32px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.contact-model-close:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.contact-model-title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  color: #f5f7fb;
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.contact-model-title i {
+  font-size: 34px;
+  color: #4ad0a9;
+}
+
+.contact-model-subtitle {
+  margin: 8px 0 16px;
+  text-align: left;
+  color: rgba(238, 242, 255, 0.75);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.contact-model-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-model-option {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  align-items: center;
+  column-gap: 16px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.contact-model-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-model-icon i {
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.contact-model-option > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.contact-model-label {
+  margin-bottom: 2px;
+  color: rgba(238, 242, 255, 0.6);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  text-align: left;
+}
+
+.contact-model-meta {
+  color: #f5f7fb;
+  font-size: 16px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+.contact-model-option.gmail .contact-model-icon {
+  background: linear-gradient(135deg, #ff4c39, #c9231d);
+}
+
+.contact-model-option.github .contact-model-icon {
+  background: linear-gradient(135deg, #08122f, #0d1e4e);
+}
+
+.contact-model-option.linkedin .contact-model-icon {
+  background: linear-gradient(135deg, #34a8ff, #0077d6);
+}
+
+.contact-model-option.whatsapp .contact-model-icon {
+  background: linear-gradient(135deg, #36df7f, #1db95f);
+}
+
+.contact-model-option.instagram .contact-model-icon {
+  background: linear-gradient(135deg, #ffd974, #f55a4e 40%, #cd2ca8 70%, #5c51d9);
+}
+
+@media (max-width: 700px) {
+  .contact-model-card {
+    width: min(520px, 94vw);
+    padding: 22px 14px 14px;
+  }
+
+  .contact-model-title {
+    font-size: 40px;
+  }
+
+  .contact-model-title i {
+    font-size: 28px;
+  }
+
+  .contact-model-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .contact-model-icon i {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 520px) {
+  .contact-model {
+    padding: 10px;
+  }
+
+  .contact-model-card {
+    width: 100%;
+    border-radius: 14px;
+    padding: 16px 10px 12px;
+  }
+
+  .contact-model-close {
+    top: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+  }
+
+  .contact-model-title {
+    font-size: 30px;
+    gap: 8px;
+  }
+
+  .contact-model-title i {
+    font-size: 22px;
+  }
+
+  .contact-model-subtitle {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .contact-model-option {
+    padding: 12px 10px;
+    border-radius: 14px;
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: 12px;
+  }
+
+  .contact-model-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .contact-model-icon i {
+    font-size: 20px;
+  }
+
+  .contact-model-label {
+    font-size: 12px;
+  }
+
+  .contact-model-meta {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,48 @@
+/* Notification pop-up for feedback form */
+.notification {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 260px;
+  max-width: calc(100% - 48px);
+  padding: 14px 18px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+  transform: translateX(24px) translateY(0) scale(0.98);
+  opacity: 0;
+  transition: opacity 180ms ease-out;
+  z-index: 9999;
+}
+
+.notification.show {
+  display: block;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  animation: slideInFromRight 360ms cubic-bezier(.2,.9,.3,1);
+}
+
+.notification.success {
+  background: linear-gradient(90deg, #2ecc71, #27ae60);
+}
+
+.notification.error {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(120%) scale(0.96);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-8px) scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
