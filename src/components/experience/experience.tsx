@@ -1,6 +1,8 @@
 import "./experience.css";
 
 function Experience() {
+  const baseUrl = import.meta.env.BASE_URL;
+
   return (
     <section id="experience" className="section">
       <h2>Experience</h2>
@@ -10,7 +12,7 @@ function Experience() {
         <article className="experience-card">
           <div className="experience-logo">
             <img
-              src="/img/internship/nicozn-technologies.webp"
+              src={`${baseUrl}img/internship/nicozn-technologies.webp`}
               alt="Nicozn Technologies Logo"
             />
           </div>
@@ -84,12 +86,12 @@ function Experience() {
         <article className="experience-card">
           <div className="experience-logo dual">
             <img
-              src="/img/internship/suprajit-logo.svg"
+              src={`${baseUrl}img/internship/suprajit-logo.svg`}
               alt="Suprajit Engineering Limited Logo"
               className="suprajit-logo"
             />
             <img
-              src="/img/internship/suprajit-name.svg"
+              src={`${baseUrl}img/internship/suprajit-name.svg`}
               alt="Suprajit Engineering Limited wordmark"
               className="suprajit-name-logo"
             />

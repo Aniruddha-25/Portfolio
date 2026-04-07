@@ -10,6 +10,9 @@ export type Certification = {
   }[];
 };
 
+const withBase = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
 export const certificationsList: Certification[] = [
   {
     title: "Machine Learning A-Z: AI, Python & R + ChatGPT Prize",
@@ -67,4 +70,11 @@ export const certificationsList: Certification[] = [
       },
     ],
   },
-];
+].map((certification) => ({
+  ...certification,
+  logo: withBase(certification.logo),
+  buttons: certification.buttons.map((button) => ({
+    ...button,
+    file: withBase(button.file),
+  })),
+}));

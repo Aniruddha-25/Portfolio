@@ -4,6 +4,7 @@ import ContactModal from "./contact_modal/contact_modal";
 
 function Home() {
   const [modalOpen, setModalOpen] = useState(false);
+  const baseUrl = import.meta.env.BASE_URL;
 
   function handleOpen() {
     console.log("Let's Connect button clicked");
@@ -88,7 +89,7 @@ function Home() {
           <div className="hero-card">
             <div className="hero-photo-frame">
               <img
-                src="/img/img.jpg"
+                src={`${baseUrl}img/img.jpg`}
                 alt="Aniruddha Salvankar"
                 className="hero-photo"
               />

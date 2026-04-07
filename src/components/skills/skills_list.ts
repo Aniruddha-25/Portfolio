@@ -9,6 +9,9 @@ export type SkillCategory = {
   items: SkillItem[];
 };
 
+const withBase = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
 export const skillsList: SkillCategory[] = [
   {
     title: "Languages",
@@ -70,4 +73,10 @@ export const skillsList: SkillCategory[] = [
       { name: "Google Colab", icon: "/img/skills/tools-and-technologies/google-colab.svg" },
     ],
   },
-];
+].map((category) => ({
+  ...category,
+  items: category.items.map((item) => ({
+    ...item,
+    icon: withBase(item.icon),
+  })),
+}));

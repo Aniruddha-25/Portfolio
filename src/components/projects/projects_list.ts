@@ -5,6 +5,9 @@ export type Project = {
   link: string;
 };
 
+const withBase = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
 export const projectsList: Project[] = [
   {
     title: "House Price Prediction",
@@ -27,4 +30,7 @@ export const projectsList: Project[] = [
     image: "/img/projects/retailer-game-stock-advisor.webp",
     link: "https://github.com/Aniruddha-25/Retailer_Game_Stock_Advisor",
   },
-];
+].map((project) => ({
+  ...project,
+  image: withBase(project.image),
+}));

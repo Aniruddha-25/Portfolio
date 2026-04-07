@@ -7,6 +7,9 @@ export type Education = {
   website: string;
 };
 
+const withBase = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+
 export const educationList: Education[] = [
   {
     degree: "B.E. in Artificial Intelligence and Machine Learning",
@@ -32,4 +35,7 @@ export const educationList: Education[] = [
     logo: "/img/education/st-marys-high-school-icon.webp",
     website: "https://stmarysssc.org/",
   },
-];
+].map((education) => ({
+  ...education,
+  logo: withBase(education.logo),
+}));
