@@ -9,14 +9,11 @@ import Projects from "./components/projects/projects";
 import Contact from "./components/contact/contact";
 import Feedback from "./components/feedback/feedback";
 
-import useAnimation from "./utils/useAnimation"; 
-
 import "./styles/base.css";
 import "./styles/colour.css";
 import "./styles/responsive.css";
 
 function App() {
-  useAnimation(); 
   return (
     <div className="container">
       <Navbar />
@@ -30,7 +27,7 @@ function App() {
         <Education />
         <Projects />
         <Contact />
-        <Feedback/>
+        <Feedback />
       </div>
     </div>
   );

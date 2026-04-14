@@ -188,6 +188,10 @@
     padding: 24px;
   }
 
+  #feedback {
+    min-height: calc(100vh - 140px);
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -369,6 +373,10 @@
     margin: 20px auto;
   }
 
+  #feedback {
+    min-height: calc(100vh - 120px);
+  }
+
   .skills-list,
   .project-cards-container {
     grid-template-columns: 1fr;
@@ -483,6 +491,10 @@
   #education {
     padding: 16px;
     margin: 16px auto;
+  }
+
+  #feedback {
+    min-height: calc(100vh - 96px);
   }
 
   #about h2,
@@ -616,6 +628,10 @@
   #education {
     padding: 12px;
     margin: 12px auto;
+  }
+
+  #feedback {
+    min-height: calc(100vh - 84px);
   }
 
   #about h2,

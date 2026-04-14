@@ -48,7 +48,12 @@ export default function useNavigation() {
           const targetSection = targetSelector ? document.querySelector<HTMLElement>(targetSelector) : null;
           if (targetSection) {
             event.preventDefault();
-            targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            window.scrollTo({
+              top: Math.min(targetTop, maxScroll),
+              behavior: "smooth",
+            });
           }
           setActiveLink(targetSelector);
         };
@@ -66,7 +71,12 @@ export default function useNavigation() {
           const targetSection = targetSelector ? document.querySelector<HTMLElement>(targetSelector) : null;
           if (!targetSection) return;
           event.preventDefault();
-          targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          window.scrollTo({
+            top: Math.min(targetTop, maxScroll),
+            behavior: "smooth",
+          });
           setActiveLink(targetSelector);
         };
 

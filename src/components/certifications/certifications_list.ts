@@ -13,13 +13,16 @@ export type Certification = {
 const withBase = (path: string) =>
   `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
+const resolveImage = (path: string) =>
+  new URL(`../../assets/img/${path}`, import.meta.url).href;
+
 export const certificationsList: Certification[] = [
   {
     title: "Machine Learning A-Z: AI, Python & R + ChatGPT Prize",
     issuer: "Udemy",
     type: "Qualification Certificate",
     date: "Feb 2026",
-    logo: "/img/certifications/udemy-icon.svg",
+    logo: "certifications/udemy-icon.svg",
     buttons: [
       {
         label: "View Certificate",
@@ -32,7 +35,7 @@ export const certificationsList: Certification[] = [
     issuer: "TCS National Qualifier Test (TCS NQT)",
     type: "Data Science Certificate",
     date: "Jan 2026",
-    logo: "/img/certifications/tcs-nqt-icon.svg",
+    logo: "certifications/tcs-nqt-icon.svg",
     buttons: [
       {
         label: "View Certificate",
@@ -45,7 +48,7 @@ export const certificationsList: Certification[] = [
     issuer: "TCS National Qualifier Test (TCS NQT)",
     type: "Qualification Certificate",
     date: "Nov 2025",
-    logo: "/img/certifications/tcs-nqt-icon.svg",
+    logo: "certifications/tcs-nqt-icon.svg",
     buttons: [
       {
         label: "View Score Card",
@@ -62,7 +65,7 @@ export const certificationsList: Certification[] = [
     issuer: "IBM | Coursera",
     type: "Qualification Certificate",
     date: "Oct 2025",
-    logo: "/img/certifications/coursera-icon.svg",
+    logo: "certifications/coursera-icon.svg",
     buttons: [
       {
         label: "View Certificate",
@@ -72,7 +75,7 @@ export const certificationsList: Certification[] = [
   },
 ].map((certification) => ({
   ...certification,
-  logo: withBase(certification.logo),
+  logo: resolveImage(certification.logo),
   buttons: certification.buttons.map((button) => ({
     ...button,
     file: withBase(button.file),

@@ -1,7 +1,18 @@
 import "./experience.css";
 
 function Experience() {
-  const baseUrl = import.meta.env.BASE_URL;
+  const nicoznLogo = new URL(
+    "../../assets/img/internship/nicozn-technologies.webp",
+    import.meta.url,
+  ).href;
+  const suprajitLogo = new URL(
+    "../../assets/img/internship/suprajit-logo.svg",
+    import.meta.url,
+  ).href;
+  const suprajitNameLogo = new URL(
+    "../../assets/img/internship/suprajit-name.svg",
+    import.meta.url,
+  ).href;
 
   return (
     <section id="experience" className="section">
@@ -11,10 +22,7 @@ function Experience() {
         {/* ----------- Experience 1 ----------- */}
         <article className="experience-card">
           <div className="experience-logo">
-            <img
-              src={`${baseUrl}img/internship/nicozn-technologies.webp`}
-              alt="Nicozn Technologies Logo"
-            />
+            <img src={nicoznLogo} alt="Nicozn Technologies Logo" />
           </div>
 
           <div className="experience-body">
@@ -86,12 +94,12 @@ function Experience() {
         <article className="experience-card">
           <div className="experience-logo dual">
             <img
-              src={`${baseUrl}img/internship/suprajit-logo.svg`}
+              src={suprajitLogo}
               alt="Suprajit Engineering Limited Logo"
               className="suprajit-logo"
             />
             <img
-              src={`${baseUrl}img/internship/suprajit-name.svg`}
+              src={suprajitNameLogo}
               alt="Suprajit Engineering Limited wordmark"
               className="suprajit-name-logo"
             />

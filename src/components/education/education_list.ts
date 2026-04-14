@@ -7,8 +7,8 @@ export type Education = {
   website: string;
 };
 
-const withBase = (path: string) =>
-  `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
+const resolveImage = (path: string) =>
+  new URL(`../../assets/img/${path}`, import.meta.url).href;
 
 export const educationList: Education[] = [
   {
@@ -16,7 +16,7 @@ export const educationList: Education[] = [
     institution: "Mangalore Institute of Technology & Engineering (MITE)",
     board: "VTU (Visvesvaraya Technological University)",
     duration: "2021 – 2025 | CGPA: 7.25",
-    logo: "/img/education/mite-icon.webp",
+    logo: "education/mite-icon.webp",
     website: "https://mite.ac.in/",
   },
   {
@@ -24,7 +24,7 @@ export const educationList: Education[] = [
     institution: "Poornaprajna PU College, Adamaru",
     board: "DPUE, Karnataka",
     duration: "Passout: 2021 | Percentage: 72%",
-    logo: "/img/education/ppc-icon.webp",
+    logo: "education/ppc-icon.webp",
     website: "https://poornaprajnaadamaru.edu.in/",
   },
   {
@@ -32,10 +32,10 @@ export const educationList: Education[] = [
     institution: "St. Mary's High School, Mumbai",
     board: "Maharashtra State Board",
     duration: "Passout: 2019 | Percentage: 72.80%",
-    logo: "/img/education/st-marys-high-school-icon.webp",
+    logo: "education/st-marys-high-school-icon.webp",
     website: "https://stmarysssc.org/",
   },
 ].map((education) => ({
   ...education,
-  logo: withBase(education.logo),
+  logo: resolveImage(education.logo),
 }));
