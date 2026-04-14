@@ -22,13 +22,20 @@ export default function useNavigation() {
 
       const updateActiveOnScroll = () => {
         let currentSection = sections[0]?.id || "";
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-          if (window.scrollY >= sectionTop - sectionHeight / 3) {
-            currentSection = section.id;
-          }
-        });
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const pageHeight = document.documentElement.scrollHeight;
+        // If at (or near) bottom, force last section active
+        if (Math.abs(scrollPosition - pageHeight) < 2) {
+          currentSection = sections[sections.length - 1]?.id || currentSection;
+        } else {
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop - sectionHeight / 3) {
+              currentSection = section.id;
+            }
+          });
+        }
         setActiveLink(`#${currentSection}`);
       };
 
