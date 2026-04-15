@@ -70,8 +70,7 @@ function Home() {
 
                 <ul className="hero-value hero-focus-list">
                   <li className="hero-focus-item">
-                    <i className="fa-light fa-microchip-ai"></i> AI/ML
-                    Engineering
+                    <i class="fa-solid fa-brain"></i> AI/ML Engineering
                   </li>
                   <li className="hero-focus-item">
                     <i className="fa-solid fa-server"></i> Full-Stack

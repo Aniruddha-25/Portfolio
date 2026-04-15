@@ -48,7 +48,7 @@ function Navbar() {
           </li>
           <li>
             <a href="#certifications" onClick={closeSidebar}>
-              <i className="fa-solid fa-file-certificate"></i> Certifications
+              <i className="fa-solid fa-certificate"></i> Certifications
             </a>
           </li>
           <li>

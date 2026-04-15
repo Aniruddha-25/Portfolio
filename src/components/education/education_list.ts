@@ -29,7 +29,7 @@ export const educationList: Education[] = [
   {
     degree: "Pre-University Course (PUC)",
     institution: "Poornaprajna PU College, Adamaru",
-    board: "DPUE, Karnataka",
+    board: "Karnataka School Examination and Assessment Board (KSEAB)",
     duration: "Passout: 2021 | Percentage: 72%",
     logo: "education/ppc-icon.webp",
     website: "https://poornaprajnaadamaru.edu.in/",
@@ -37,7 +37,7 @@ export const educationList: Education[] = [
   {
     degree: "Secondary School Certificate (SSC)",
     institution: "St. Mary's High School, Mumbai",
-    board: "Maharashtra State Board",
+    board: "Maharashtra State Board of Secondary & Higher Secondary Education, Pune",
     duration: "Passout: 2019 | Percentage: 72.80%",
     logo: "education/st-marys-high-school-icon.webp",
     website: "https://stmarysssc.org/",

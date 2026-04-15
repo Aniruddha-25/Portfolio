@@ -60,7 +60,7 @@ export const skillsList: SkillCategory[] = [
   },
   {
     title: "Data Analytics & ML Tooling",
-    iconClass: "fa-solid fa-microchip-ai",
+    iconClass: "fa-solid fa-brain",
     items: [
       { name: "Pandas", icon: "skills/data-ml-tools/pandas.svg" },
       { name: "NumPy", icon: "skills/data-ml-tools/numpy.svg" },
