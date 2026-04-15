@@ -52,7 +52,7 @@ Key advantages:
 * **useEffect**: handles side effects (scroll behavior, navigation highlighting, lifecycle logic)
 * **StrictMode**: helps surface development-time issues early
 
----
+
 ## Main Dependencies
 
 ```json
@@ -97,7 +97,7 @@ Key advantages:
   
   → Used to render the React application in the browser
 
----
+
 
 
 ## **Optimization & Advantages:**
@@ -111,7 +111,7 @@ Key advantages:
 * Better user experience with smooth interactions
 * Organized structure improves debugging and development speed
 
----
+
 
 
 ## Getting Started
