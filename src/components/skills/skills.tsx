@@ -7,7 +7,7 @@ function Skills() {
 
       <ul className="skills-list">
         {skillsList.map((category, index) => (
-          <li className="skill" key={index}>
+          <li className="skill visible" key={index}>
             <div className="skill-item">
               <div className="skill-name" style={{ fontWeight: "bold" }}>
                 <i className={category.iconClass}></i> {category.title}

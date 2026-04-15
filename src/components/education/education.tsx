@@ -8,7 +8,7 @@ function Education() {
 
       <div className="education-list">
         {educationList.map((edu, index) => (
-          <article className="education-card" key={index}>
+          <article className="education-card visible" key={index}>
             <div className="education-logo">
               <img src={edu.logo} alt={edu.institution} />
             </div>

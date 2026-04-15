@@ -8,7 +8,7 @@ function Projects() {
 
       <div className="project-cards-container">
         {projectsList.map((project, index) => (
-          <div className="project-card" key={index}>
+          <div className="project-card visible" key={index}>
             <img
               src={project.image}
               alt={project.title}

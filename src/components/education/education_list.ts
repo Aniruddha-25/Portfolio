@@ -7,8 +7,15 @@ export type Education = {
   website: string;
 };
 
-const resolveImage = (path: string) =>
-  new URL(`../../assets/img/${path}`, import.meta.url).href;
+const imageModules = import.meta.glob("../../assets/img/**/*.{png,jpg,jpeg,webp,svg}", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+const resolveImage = (path: string) => {
+  const key = `../../assets/img/${path}`;
+  return imageModules[key] ?? "";
+};
 
 export const educationList: Education[] = [
   {

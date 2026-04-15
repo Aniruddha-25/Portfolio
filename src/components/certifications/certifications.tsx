@@ -23,7 +23,7 @@ function Certifications() {
 
       <div className="certifications-list">
         {certificationsList.map((cert, index) => (
-          <article className="certification-card" key={index}>
+          <article className="certification-card visible" key={index}>
             <div className="certification-logo">
               <img src={cert.logo} alt={cert.title} />
             </div>
