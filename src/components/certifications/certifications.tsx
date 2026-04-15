@@ -1,5 +1,7 @@
 import "./certifications.css";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { certificationsList } from "./certifications_list";
 import CertificationViewer from "./certification_viewer";
 
@@ -46,7 +48,7 @@ function Certifications() {
                     className="btn"
                     onClick={() => openCertificate(btn.file)}
                   >
-                    <i className="fas fa-external-link-alt"></i>
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                     {btn.label}
                   </button>
                 ))}
@@ -55,7 +57,11 @@ function Certifications() {
           </article>
         ))}
       </div>
-      <CertificationViewer open={viewerOpen} pdfUrl={viewerUrl} onClose={() => setViewerOpen(false)} />
+      <CertificationViewer
+        open={viewerOpen}
+        pdfUrl={viewerUrl}
+        onClose={() => setViewerOpen(false)}
+      />
     </section>
   );
 }

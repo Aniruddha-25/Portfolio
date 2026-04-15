@@ -1,4 +1,19 @@
 import "./experience.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowUpRightFromSquare,
+  faBolt,
+  faDatabase,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faCss3Alt,
+  faFigma,
+  faGoogle,
+  faHtml5,
+  faJs,
+  faNodeJs,
+  faPython,
+} from "@fortawesome/free-brands-svg-icons";
 
 function Experience() {
   const nicoznLogo = new URL(
@@ -45,22 +60,22 @@ function Experience() {
                 Technologies used :
                 <span className="experience-tags">
                   <span className="tech-badge">
-                    <i className="fab fa-html5"></i> HTML
+                    <FontAwesomeIcon icon={faHtml5} /> HTML
                   </span>
                   <span className="tech-badge">
-                    <i className="fab fa-css3-alt"></i> CSS
+                    <FontAwesomeIcon icon={faCss3Alt} /> CSS
                   </span>
                   <span className="tech-badge">
-                    <i className="fab fa-js"></i> JavaScript
+                    <FontAwesomeIcon icon={faJs} /> JavaScript
                   </span>
                   <span className="tech-badge">
-                    <i className="fab fa-figma"></i> Figma
+                    <FontAwesomeIcon icon={faFigma} /> Figma
                   </span>
                   <span className="tech-badge">
-                    <i className="fas fa-bolt"></i> GSAP
+                    <FontAwesomeIcon icon={faBolt} /> GSAP
                   </span>
                   <span className="tech-badge">
-                    <i className="fab fa-google"></i> Firebase
+                    <FontAwesomeIcon icon={faGoogle} /> Firebase
                   </span>
                 </span>
               </li>
@@ -83,7 +98,7 @@ function Experience() {
                 target="_blank"
                 rel="noopener"
               >
-                <i className="fas fa-external-link-alt"></i>
+                <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                 <span>Visit Website</span>
               </a>
             </div>
@@ -125,22 +140,22 @@ function Experience() {
                 Technologies used :
                 <span className="experience-tags">
                   <span className="tech-badge">
-                    <i className="fab fa-html5"></i> HTML
+                    <FontAwesomeIcon icon={faHtml5} /> HTML
                   </span>
                   <span className="tech-badge">
-                    <i className="fab fa-css3-alt"></i> CSS
+                    <FontAwesomeIcon icon={faCss3Alt} /> CSS
                   </span>
                   <span className="tech-badge">
-                    <i className="fab fa-js"></i> JavaScript
+                    <FontAwesomeIcon icon={faJs} /> JavaScript
                   </span>
                   <span className="tech-badge">
-                    <i className="fab fa-node-js"></i> Node.js
+                    <FontAwesomeIcon icon={faNodeJs} /> Node.js
                   </span>
                   <span className="tech-badge">
-                    <i className="fa-brands fa-python"></i> Flask
+                    <FontAwesomeIcon icon={faPython} /> Flask
                   </span>
                   <span className="tech-badge">
-                    <i className="fas fa-database"></i> PostgreSQL
+                    <FontAwesomeIcon icon={faDatabase} /> PostgreSQL
                   </span>
                 </span>
               </li>
@@ -163,7 +178,7 @@ function Experience() {
                 target="_blank"
                 rel="noopener"
               >
-                <i className="fas fa-external-link-alt"></i>
+                <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                 <span>Visit Website</span>
               </a>
             </div>

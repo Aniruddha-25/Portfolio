@@ -86,7 +86,10 @@
 }
 
 .hero-label {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
   font-size: 0.85em;
   text-transform: uppercase;
   letter-spacing: 1px;

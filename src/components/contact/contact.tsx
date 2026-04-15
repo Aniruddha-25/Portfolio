@@ -1,9 +1,17 @@
 import "./contact.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAddressBook,
+  faEnvelope,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+
 function Contact() {
   return (
     <section id="contact" className="section">
       <h2 className="contact-title">
-        <i className="fa fa-address-book"></i> Contact
+        <FontAwesomeIcon icon={faAddressBook} /> Contact
       </h2>
 
       <div className="contact-glass-card">
@@ -12,7 +20,7 @@ function Contact() {
           href="tel:+918657809766"
         >
           <span className="contact-glass-icon icon-phone">
-            <i className="fas fa-phone"></i>
+            <FontAwesomeIcon icon={faPhone} />
           </span>
           <div>
             <div className="contact-label">Phone</div>
@@ -25,7 +33,7 @@ function Contact() {
           href="mailto:aniruddha.salvankar2523@gmail.com"
         >
           <span className="contact-glass-icon icon-email">
-            <i className="fas fa-envelope"></i>
+            <FontAwesomeIcon icon={faEnvelope} />
           </span>
           <div>
             <div className="contact-label">Email</div>
@@ -42,7 +50,7 @@ function Contact() {
           rel="noopener"
         >
           <span className="contact-glass-icon icon-linkedin">
-            <i className="fab fa-linkedin"></i>
+            <FontAwesomeIcon icon={faLinkedin} />
           </span>
           <div>
             <div className="contact-label">LinkedIn</div>

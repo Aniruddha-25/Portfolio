@@ -1,4 +1,17 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAddressCard,
+  faBrain,
+  faBriefcase,
+  faCertificate,
+  faComment,
+  faGraduationCap,
+  faHome,
+  faLaptop,
+  faLayerGroup,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
 import useNavigation from "./useNavigation";
 
 function Navbar() {
@@ -22,53 +35,53 @@ function Navbar() {
       {/* Sidebar */}
       <nav className={`sidebar ${open ? "active" : ""}`}>
         <div className="logo">
-          <i className="fa-solid fa-laptop"></i> Portfolio
+          <FontAwesomeIcon icon={faLaptop} /> Portfolio
         </div>
 
         <ul>
           <li>
             <a href="#home" onClick={closeSidebar}>
-              <i className="fas fa-home"></i> Home
+              <FontAwesomeIcon icon={faHome} /> Home
             </a>
           </li>
           <li>
             <a href="#about" onClick={closeSidebar}>
-              <i className="fas fa-user"></i> About
+              <FontAwesomeIcon icon={faUser} /> About
             </a>
           </li>
           <li>
             <a href="#experience" onClick={closeSidebar}>
-              <i className="fas fa-briefcase"></i> Experience
+              <FontAwesomeIcon icon={faBriefcase} /> Experience
             </a>
           </li>
           <li>
             <a href="#skills" onClick={closeSidebar}>
-              <i className="fa-solid fa-brain"></i> Skills
+              <FontAwesomeIcon icon={faBrain} /> Skills
             </a>
           </li>
           <li>
             <a href="#certifications" onClick={closeSidebar}>
-              <i className="fa-solid fa-certificate"></i> Certifications
+              <FontAwesomeIcon icon={faCertificate} /> Certifications
             </a>
           </li>
           <li>
             <a href="#education" onClick={closeSidebar}>
-              <i className="fa-solid fa-graduation-cap"></i> Education
+              <FontAwesomeIcon icon={faGraduationCap} /> Education
             </a>
           </li>
           <li>
             <a href="#portfolio" onClick={closeSidebar}>
-              <i className="fa-solid fa-layer-group"></i> Projects
+              <FontAwesomeIcon icon={faLayerGroup} /> Projects
             </a>
           </li>
           <li>
             <a href="#contact" onClick={closeSidebar}>
-              <i className="fa-solid fa-address-card"></i> Contact
+              <FontAwesomeIcon icon={faAddressCard} /> Contact
             </a>
           </li>
           <li>
             <a href="#feedback" onClick={closeSidebar}>
-              <i className="fas fa-comment"></i> Feedback
+              <FontAwesomeIcon icon={faComment} /> Feedback
             </a>
           </li>
         </ul>

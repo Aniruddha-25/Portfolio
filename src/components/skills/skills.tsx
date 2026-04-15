@@ -1,4 +1,5 @@
 import "./skills.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { skillsList } from "./skills_list";
 function Skills() {
   return (
@@ -10,7 +11,7 @@ function Skills() {
           <li className="skill visible" key={index}>
             <div className="skill-item">
               <div className="skill-name" style={{ fontWeight: "bold" }}>
-                <i className={category.iconClass}></i> {category.title}
+                <FontAwesomeIcon icon={category.icon} /> {category.title}
               </div>
             </div>
 

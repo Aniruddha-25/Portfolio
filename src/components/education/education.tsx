@@ -1,4 +1,6 @@
 import "./education.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { educationList } from "./education_list";
 
 function Education() {
@@ -31,7 +33,7 @@ function Education() {
                   target="_blank"
                   rel="noopener"
                 >
-                  <i className="fas fa-external-link-alt"></i>
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                   <span>Visit Website</span>
                 </a>
               </div>

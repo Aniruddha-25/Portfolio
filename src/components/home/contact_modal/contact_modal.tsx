@@ -1,4 +1,16 @@
 import { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faEnvelope,
+  faHandshake,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faGithub,
+  faInstagram,
+  faLinkedin,
+  faWhatsapp,
+} from "@fortawesome/free-brands-svg-icons";
 import "./contact_modal.css";
 
 type Props = {
@@ -31,11 +43,11 @@ function ContactModal({ open, onClose }: Props) {
 
       <div className="contact-model-card">
         <button className="contact-model-close" onClick={onClose}>
-          <i className="fas fa-times"></i>
+          <FontAwesomeIcon icon={faXmark} />
         </button>
 
         <h3 className="contact-model-title">
-          <i className="fas fa-handshake"></i> Let's Connect!
+          <FontAwesomeIcon icon={faHandshake} /> Let's Connect!
         </h3>
 
         <p className="contact-model-subtitle">
@@ -48,11 +60,13 @@ function ContactModal({ open, onClose }: Props) {
             className="contact-model-option gmail"
           >
             <span className="contact-model-icon">
-              <i className="fas fa-envelope"></i>
+              <FontAwesomeIcon icon={faEnvelope} />
             </span>
             <div>
               <div className="contact-model-label">GMAIL</div>
-              <div className="contact-model-meta">aniruddha.salvankar2523@gmail.com</div>
+              <div className="contact-model-meta">
+                aniruddha.salvankar2523@gmail.com
+              </div>
             </div>
           </a>
 
@@ -62,7 +76,7 @@ function ContactModal({ open, onClose }: Props) {
             className="contact-model-option github"
           >
             <span className="contact-model-icon">
-              <i className="fab fa-github"></i>
+              <FontAwesomeIcon icon={faGithub} />
             </span>
             <div>
               <div className="contact-model-label">GITHUB</div>
@@ -76,7 +90,7 @@ function ContactModal({ open, onClose }: Props) {
             className="contact-model-option linkedin"
           >
             <span className="contact-model-icon">
-              <i className="fab fa-linkedin"></i>
+              <FontAwesomeIcon icon={faLinkedin} />
             </span>
             <div>
               <div className="contact-model-label">LINKEDIN</div>
@@ -90,7 +104,7 @@ function ContactModal({ open, onClose }: Props) {
             className="contact-model-option whatsapp"
           >
             <span className="contact-model-icon">
-              <i className="fab fa-whatsapp"></i>
+              <FontAwesomeIcon icon={faWhatsapp} />
             </span>
             <div>
               <div className="contact-model-label">WHATSAPP</div>
@@ -104,7 +118,7 @@ function ContactModal({ open, onClose }: Props) {
             className="contact-model-option instagram"
           >
             <span className="contact-model-icon">
-              <i className="fab fa-instagram"></i>
+              <FontAwesomeIcon icon={faInstagram} />
             </span>
             <div>
               <div className="contact-model-label">INSTAGRAM</div>

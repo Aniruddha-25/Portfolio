@@ -1,5 +1,15 @@
 import "./home.css";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBrain,
+  faBullseye,
+  faDownload,
+  faHandshake,
+  faLocationDot,
+  faServer,
+  faWandMagicSparkles,
+} from "@fortawesome/free-solid-svg-icons";
 import ContactModal from "./contact_modal/contact_modal";
 
 function Home() {
@@ -37,12 +47,12 @@ function Home() {
                 className="btn"
                 download="Aniruddha_Salvankar_Resume.pdf"
               >
-                <i className="fa-solid fa-download"></i>
+                <FontAwesomeIcon icon={faDownload} />
                 <span>Download Resume</span>
               </a>
 
               <button className="btn" onClick={handleOpen}>
-                <i className="fas fa-handshake"></i>
+                <FontAwesomeIcon icon={faHandshake} />
                 <span>Let's Connect</span>
               </button>
             </div>
@@ -50,10 +60,7 @@ function Home() {
             <div className="hero-meta">
               <div className="hero-meta-block">
                 <span className="hero-label" style={{ fontWeight: "bold" }}>
-                  <i
-                    className="fas fa-location-dot"
-                    style={{ marginBottom: "10px" }}
-                  ></i>{" "}
+                  <FontAwesomeIcon icon={faLocationDot} />
                   Location
                 </span>
 
@@ -61,24 +68,19 @@ function Home() {
               </div>
 
               <div className="hero-meta-block">
-                <span
-                  className="hero-label"
-                  style={{ marginBottom: "10px", fontWeight: "bold" }}
-                >
-                  <i className="fas fa-bullseye"></i> Focus
+                <span className="hero-label" style={{ fontWeight: "bold" }}>
+                  <FontAwesomeIcon icon={faBullseye} /> Focus
                 </span>
 
                 <ul className="hero-value hero-focus-list">
                   <li className="hero-focus-item">
-                    <i class="fa-solid fa-brain"></i> AI/ML Engineering
+                    <FontAwesomeIcon icon={faBrain} /> AI/ML Engineering
                   </li>
                   <li className="hero-focus-item">
-                    <i className="fa-solid fa-server"></i> Full-Stack
-                    Development
+                    <FontAwesomeIcon icon={faServer} /> Full-Stack Development
                   </li>
                   <li className="hero-focus-item">
-                    <i className="fa-solid fa-wand-magic-sparkles"></i> UI/UX
-                    Design
+                    <FontAwesomeIcon icon={faWandMagicSparkles} /> UI/UX Design
                   </li>
                 </ul>
               </div>

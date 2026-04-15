@@ -1,3 +1,13 @@
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import {
+  faBrain,
+  faCode,
+  faDatabase,
+  faScrewdriverWrench,
+  faServer,
+} from "@fortawesome/free-solid-svg-icons";
+import { faReact } from "@fortawesome/free-brands-svg-icons";
+
 export type SkillItem = {
   name: string;
   icon: string;
@@ -5,7 +15,7 @@ export type SkillItem = {
 
 export type SkillCategory = {
   title: string;
-  iconClass: string;
+  icon: IconDefinition;
   items: SkillItem[];
 };
 
@@ -22,7 +32,7 @@ const resolveImage = (path: string) => {
 export const skillsList: SkillCategory[] = [
   {
     title: "Languages",
-    iconClass: "fa-solid fa-code",
+    icon: faCode,
     items: [
       { name: "Python", icon: "skills/languages/python.svg" },
       { name: "Java", icon: "skills/languages/java.svg" },
@@ -32,7 +42,7 @@ export const skillsList: SkillCategory[] = [
   },
   {
     title: "Front-End Development",
-    iconClass: "fa-brands fa-react",
+    icon: faReact,
     items: [
       { name: "React", icon: "skills/front-end-development/react.svg" },
       { name: "HTML", icon: "skills/front-end-development/html.svg" },
@@ -42,7 +52,7 @@ export const skillsList: SkillCategory[] = [
   },
   {
     title: "Database",
-    iconClass: "fa-solid fa-database",
+    icon: faDatabase,
     items: [
       { name: "MySQL", icon: "skills/database/mysql.svg" },
       { name: "PostgreSQL", icon: "skills/database/postgresql.svg" },
@@ -51,7 +61,7 @@ export const skillsList: SkillCategory[] = [
   },
   {
     title: "Frameworks",
-    iconClass: "fa-solid fa-server",
+    icon: faServer,
     items: [
       { name: "Django", icon: "skills/frameworks/django.svg" },
       { name: "Flask", icon: "skills/frameworks/flask.svg" },
@@ -60,7 +70,7 @@ export const skillsList: SkillCategory[] = [
   },
   {
     title: "Data Analytics & ML Tooling",
-    iconClass: "fa-solid fa-brain",
+    icon: faBrain,
     items: [
       { name: "Pandas", icon: "skills/data-ml-tools/pandas.svg" },
       { name: "NumPy", icon: "skills/data-ml-tools/numpy.svg" },
@@ -71,7 +81,7 @@ export const skillsList: SkillCategory[] = [
   },
   {
     title: "Tools & Technologies",
-    iconClass: "fa-solid fa-screwdriver-wrench",
+    icon: faScrewdriverWrench,
     items: [
       { name: "Linux (Ubuntu)", icon: "skills/tools-and-technologies/linux.svg" },
       { name: "VS Code", icon: "skills/tools-and-technologies/vs-code.svg" },

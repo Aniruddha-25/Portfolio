@@ -1,4 +1,6 @@
 import "./projects.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { projectsList } from "./projects_list";
 
 function Projects() {
@@ -25,7 +27,7 @@ function Projects() {
                   className="project-link"
                   onClick={() => window.open(project.link, "_blank")}
                 >
-                  <i className="fas fa-external-link-alt"></i>
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                   <span>View Source Code</span>
                 </button>
               </div>
