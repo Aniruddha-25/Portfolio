@@ -59,7 +59,6 @@
   column-gap: 32px;
   row-gap: 40px;
   justify-items: center;
-  length:100%;
   width: 100%;
   max-width: 2000px;
   margin-left: auto;
@@ -69,9 +68,9 @@
 .project-card {
   position: relative;
   width: 100%;
-  max-width: 280px;
-  min-width: 240px;
-  height: 400px;
+  max-width: 340px;
+  min-width: 280px;
+  height: 470px;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 4px 16px var(--shadow-soft);
@@ -103,7 +102,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, var(--primary-overlay-strong) 0%, var(--overlay-dark) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(197, 68, 28, 0.9) 0%,
+    rgba(120, 40, 16, 0.92) 55%,
+    rgba(18, 12, 9, 0.95) 100%
+  );
   opacity: 0;
   transition: opacity 0.3s;
   display: flex;
@@ -138,12 +142,12 @@
 
 .project-overlay-content {
   color: var(--text-white);
-  padding: 32px 18px 24px 18px;
+  padding: 34px 22px 28px 22px;
   text-align: center;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   height: 100%;
   transform: translateY(60px);
@@ -152,16 +156,59 @@
 }
 
 .project-overlay-content h3 {
-  margin-bottom: 15px;
+  margin-top: 16px;
+  margin-bottom: 10px;
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
 }
 
 .project-overlay-content p {
-  margin-bottom: auto;
+  margin-bottom: 0;
   max-width: 90%;
+  margin-top: 12px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-light);
 }
 
 .project-overlay-content .project-link {
-  margin-top: auto;
+  margin-top: 18px;
+}
+
+.project-programs {
+  width: 100%;
+  max-width: 92%;
+  text-align: center;
+}
+
+.project-programs-list {
+  margin-top: 2px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.project-program-chip {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--primary-color);
+  background: var(--primary-overlay-pill);
+  color: var(--text-white);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.project-program-chip svg {
+  font-size: 1.05rem;
 }
 
 .project-card:hover .project-overlay-content {

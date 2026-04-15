@@ -2,6 +2,7 @@ import "./projects.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { projectsList } from "./projects_list";
+import { getProgramMeta } from "./project_programs";
 
 function Projects() {
   return (
@@ -20,6 +21,20 @@ function Projects() {
 
             <div className="project-overlay">
               <div className="project-overlay-content">
+                <div className="project-programs" aria-label="Programs used">
+                  <div className="project-programs-list">
+                    {project.programsUsed.map((program) => {
+                      const programMeta = getProgramMeta(program);
+
+                      return (
+                        <span className="project-program-chip" key={program}>
+                          <FontAwesomeIcon icon={programMeta.icon} />
+                          <span>{programMeta.label}</span>
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
 
