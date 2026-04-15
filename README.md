@@ -33,7 +33,7 @@ This Portfolio Presents Professional Details in a Clean and Structured Format wi
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 ### 
 1. Core
@@ -56,7 +56,7 @@ This Portfolio Presents Professional Details in a Clean and Structured Format wi
 ---
 
 
-## 📦 Main Dependencies
+## Main Dependencies
 
 * **@emailjs/browser**
   Handles feedback form submissions directly from the frontend
