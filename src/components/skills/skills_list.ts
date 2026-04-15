@@ -1,6 +1,6 @@
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
-  faBrain,
+  faMicrochip,
   faCode,
   faDatabase,
   faScrewdriverWrench,
@@ -70,7 +70,7 @@ export const skillsList: SkillCategory[] = [
   },
   {
     title: "Data Analytics & ML Tooling",
-    icon: faBrain,
+    icon: faMicrochip,
     items: [
       { name: "Pandas", icon: "skills/data-ml-tools/pandas.svg" },
       { name: "NumPy", icon: "skills/data-ml-tools/numpy.svg" },

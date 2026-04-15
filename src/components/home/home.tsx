@@ -2,14 +2,14 @@ import "./home.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBrain,
   faBullseye,
   faDownload,
   faHandshake,
   faLocationDot,
+  faRobot,
   faServer,
-  faWandMagicSparkles,
 } from "@fortawesome/free-solid-svg-icons";
+import { faFigma } from "@fortawesome/free-brands-svg-icons";
 import ContactModal from "./contact_modal/contact_modal";
 
 function Home() {
@@ -74,13 +74,13 @@ function Home() {
 
                 <ul className="hero-value hero-focus-list">
                   <li className="hero-focus-item">
-                    <FontAwesomeIcon icon={faBrain} /> AI/ML Engineering
+                    <FontAwesomeIcon icon={faRobot} /> AI/ML Engineering
                   </li>
                   <li className="hero-focus-item">
                     <FontAwesomeIcon icon={faServer} /> Full-Stack Development
                   </li>
                   <li className="hero-focus-item">
-                    <FontAwesomeIcon icon={faWandMagicSparkles} /> UI/UX Design
+                    <FontAwesomeIcon icon={faFigma} /> UI/UX Design
                   </li>
                 </ul>
               </div>
