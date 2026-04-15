@@ -1,18 +1,18 @@
-# 🌐 Portfolio – React + TypeScript (Vite)
+# Portfolio – React + TypeScript (Vite)
 
 A Modern and Responsive **Single-Page Portfolio Application** Built using React, TypeScript, and Vite to showcase Skills, Projects, and Experience.
 
 ---
 
-## 🧠 Overview
+## Overview
 
 This Portfolio Presents Professional Details in a Clean and Structured Format with Smooth Navigation and Interactive UI Components.
 
 ---
 
-### 👨‍💻 Portfolio  
+### Portfolio  
 -> **Live Demo:** [View My Portfolio](https://aniruddha-25.github.io/Portfolio/)
-## ⭐ Features
+## Features
 
 * Responsive single-page application
 * Smooth scrolling navigation
@@ -104,7 +104,7 @@ npm run dev
 ---
 
 
-## 🚀 Build & Deploy (GitHub Pages)
+## Build & Deploy (GitHub Pages)
 
 ```bash id="c9k2re"
 npm run build && npm run deploy
@@ -114,7 +114,7 @@ npm run build && npm run deploy
 
 
 
-## 👨‍💻 Author
+## Author
 
 **Aniruddha Salvankar**
 
