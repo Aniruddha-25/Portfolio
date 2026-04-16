@@ -24,6 +24,7 @@ export const projectsList: Project[] = [
     programsUsed: [
       "Python",
       "Scikit-learn",
+      "NumPy",
       "Pandas",
       "Flask",
       "HTML",
