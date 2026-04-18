@@ -24,6 +24,19 @@ const resolveImage = (path: string) => {
 };
 
 export const certificationsList: Certification[] = [
+{
+  title: "SQL (Basic)",
+  issuer: "HackerRank",
+  type: "Skill Certification Test",
+  date: "Apr 2026",
+  logo: "certifications/hackerrank-icon.svg",
+  buttons: [
+    {
+      label: "View Certificate",
+      file: "/data/certifications-and-achievements/hackerrank/sql-(basic)-hackerrank.pdf",
+    },
+  ],
+},
   {
     title: "Machine Learning A-Z: AI, Python & R + ChatGPT Prize",
     issuer: "Udemy",
@@ -40,7 +53,7 @@ export const certificationsList: Certification[] = [
   {
     title: "TCS ION NQT - Machine Learning",
     issuer: "TCS National Qualifier Test (TCS NQT)",
-    type: "Data Science Certificate",
+    type: "National Qualifier Test Certification",
     date: "Jan 2026",
     logo: "certifications/tcs-nqt-icon.svg",
     buttons: [
@@ -53,7 +66,7 @@ export const certificationsList: Certification[] = [
   {
     title: "TCS iON NQT - IT",
     issuer: "TCS National Qualifier Test (TCS NQT)",
-    type: "Qualification Certificate",
+    type: "National Qualifier Test Certification",
     date: "Nov 2025",
     logo: "certifications/tcs-nqt-icon.svg",
     buttons: [
