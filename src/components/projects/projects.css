@@ -18,42 +18,7 @@
   text-align: center;
 }
 
-.portfolio-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.portfolio-box {
-  background-color: var(--bg-darkest);
-  border: 2px solid var(--primary-color);
-  border-radius: 8px;
-  padding: 20px;
-  color: var(--text-white);
-  box-shadow: 0 4px 6px var(--shadow-extra-light);
-}
-
-.portfolio-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-.portfolio-title:hover {
-  text-decoration: underline;
-}
-
-.portfolio-description {
-  margin-top: 10px;
-  font-size: 18px;
-  line-height: 1.8;
-  color: var(--text-gray);
-  padding: 10px;
-}
-
 .project-cards-container {
-  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 32px;
@@ -61,8 +26,7 @@
   justify-items: center;
   width: 100%;
   max-width: 2000px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto 0;
 }
 
 .project-card {
@@ -98,10 +62,7 @@
 
 .project-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: linear-gradient(
     180deg,
     rgba(197, 68, 28, 0.9) 0%,
@@ -142,7 +103,7 @@
 
 .project-overlay-content {
   color: var(--text-white);
-  padding: 34px 22px 28px 22px;
+  padding: 34px 22px 28px;
   text-align: center;
   width: 100%;
   display: flex;

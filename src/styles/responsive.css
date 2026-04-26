@@ -444,8 +444,7 @@
     font-size: 0.95em;
   }
 
-  #feedback .feedback-form,
-  .form-container {
+  #feedback .feedback-form {
     max-width: 100%;
   }
 
@@ -780,9 +779,5 @@
   .feedback-form textarea {
     font-size: 15px;
     padding: 10px;
-  }
-
-  .form-container {
-    padding: 20px;
   }
 }
