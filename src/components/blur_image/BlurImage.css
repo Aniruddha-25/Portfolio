@@ -1,0 +1,33 @@
+.img-skeleton {
+  background: linear-gradient(
+    90deg,
+    #1c1c1c 25%,
+    #2e2e2e 50%,
+    #1c1c1c 75%
+  );
+  background-size: 200% 100%;
+  animation: img-skeleton-shimmer 1.4s ease-in-out infinite;
+  border-radius: inherit;
+}
+
+@keyframes img-skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.img-fade-in {
+  animation: img-fade-in 0.45s ease forwards;
+}
+
+@keyframes img-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
