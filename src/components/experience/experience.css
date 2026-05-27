@@ -53,6 +53,12 @@
   max-width: 100%;
   height: auto;
   object-fit: contain;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.experience-logo:hover img {
+  filter: blur(2px) brightness(0.75);
+  transform: scale(1.05);
 }
 
 .experience-logo.dual {

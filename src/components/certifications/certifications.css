@@ -69,6 +69,12 @@
   object-fit: contain;
   object-position: 53% 50%;
   margin: auto;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.certification-logo:hover img {
+  filter: blur(2px) brightness(0.75);
+  transform: scale(1.05);
 }
 
 .certification-logo:hover {
