@@ -95,11 +95,11 @@ function CertificationViewer({ open, pdfUrl, onClose }: Props) {
             </div>
           )}
 
-          <iframe
+          <embed
             key={pdfUrl}
             src={pdfUrl}
+            type="application/pdf"
             className="certification-viewer-iframe"
-            title="Certificate Viewer"
             style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.4s ease" }}
             onLoad={handleIframeLoad}
           />
