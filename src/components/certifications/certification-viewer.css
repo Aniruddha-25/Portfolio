@@ -96,6 +96,32 @@
   justify-content: center;
   align-items: center;
   background: rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.cv-progress-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 2;
+  background: rgba(10, 14, 26, 0.85);
+  border-radius: 0 0 18px 18px;
+}
+
+.cv-progress-ring {
+  width: 120px;
+  height: 120px;
+}
+
+.cv-progress-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin: 0;
+  letter-spacing: 0.5px;
 }
 
 .certification-viewer-iframe {

@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCertificate, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 import "./certification-viewer.css";
 
 type Props = {
@@ -10,26 +12,56 @@ type Props = {
 };
 
 function CertificationViewer({ open, pdfUrl, onClose }: Props) {
-  // Handle ESC key
+  const [progress, setProgress] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-      }
+      if (e.key === "Escape") onClose();
     };
-
     document.addEventListener("keydown", handleEsc);
     return () => document.removeEventListener("keydown", handleEsc);
   }, [onClose]);
+
+  useEffect(() => {
+    if (!open) {
+      setProgress(0);
+      setLoaded(false);
+      return;
+    }
+
+    setProgress(0);
+    setLoaded(false);
+
+    intervalRef.current = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 90) {
+          clearInterval(intervalRef.current!);
+          return 90;
+        }
+        const increment = prev < 30 ? 8 : prev < 60 ? 4 : prev < 80 ? 2 : 0.5;
+        return Math.min(prev + increment, 90);
+      });
+    }, 150);
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [open, pdfUrl]);
+
+  function handleIframeLoad() {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    setProgress(100);
+    setTimeout(() => setLoaded(true), 400);
+  }
 
   if (!open) return null;
 
   return (
     <div className="certification-viewer active">
-      {/* Overlay */}
-      <div className="certification-viewer-overlay" onClick={onClose}></div>
+      <div className="certification-viewer-overlay" onClick={onClose} />
 
-      {/* Card */}
       <div
         className="certification-viewer-card"
         onClick={(e) => e.stopPropagation()}
@@ -44,11 +76,33 @@ function CertificationViewer({ open, pdfUrl, onClose }: Props) {
         </div>
 
         <div className="certification-viewer-content">
+          {!loaded && (
+            <div className="cv-progress-overlay">
+              <div className="cv-progress-ring">
+                <CircularProgressbar
+                  value={progress}
+                  text={`${Math.round(progress)}%`}
+                  styles={buildStyles({
+                    textSize: "18px",
+                    pathColor: "#c5441c",
+                    textColor: "#ffffff",
+                    trailColor: "rgba(255,255,255,0.1)",
+                    pathTransitionDuration: 0.3,
+                  })}
+                />
+              </div>
+              <p className="cv-progress-label">Loading document…</p>
+            </div>
+          )}
+
           <iframe
+            key={pdfUrl}
             src={pdfUrl}
             className="certification-viewer-iframe"
             title="Certificate Viewer"
-          ></iframe>
+            style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.4s ease" }}
+            onLoad={handleIframeLoad}
+          />
         </div>
       </div>
     </div>
