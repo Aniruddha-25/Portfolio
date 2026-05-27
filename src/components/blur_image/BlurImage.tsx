@@ -13,9 +13,8 @@ function BlurImage({ src, alt, style, ...props }: BlurImageProps) {
       src={src}
       alt={alt}
       style={{
-        filter: loaded ? "blur(0px)" : "blur(20px)",
-        transform: loaded ? "scale(1)" : "scale(1.05)",
-        transition: "filter 0.5s ease-out, transform 0.5s ease-out",
+        filter: loaded ? "blur(0px)" : "blur(12px)",
+        transition: "filter 0.5s ease-out",
         ...style,
       }}
       onLoad={() => setLoaded(true)}
