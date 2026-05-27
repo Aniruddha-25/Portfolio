@@ -45,15 +45,23 @@ function CertificationViewer({ open, pdfUrl, onClose }: Props) {
       });
     }, 150);
 
+    // Fallback: force complete after 3.5 s if onLoad never fires
+    const fallback = setTimeout(() => forceComplete(), 3500);
+
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
+      clearTimeout(fallback);
     };
   }, [open, pdfUrl]);
 
-  function handleIframeLoad() {
+  function forceComplete() {
     if (intervalRef.current) clearInterval(intervalRef.current);
     setProgress(100);
     setTimeout(() => setLoaded(true), 400);
+  }
+
+  function handleIframeLoad() {
+    forceComplete();
   }
 
   if (!open) return null;
