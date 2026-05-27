@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { certificationsList } from "./certifications_list";
 import CertificationViewer from "./certification_viewer";
+import BlurImage from "../blur_image/BlurImage";
 
 function Certifications() {
   const [viewerOpen, setViewerOpen] = useState(false);
@@ -27,7 +28,7 @@ function Certifications() {
         {certificationsList.map((cert, index) => (
           <article className="certification-card visible" key={index}>
             <div className="certification-logo">
-              <img src={cert.logo} alt={cert.title} />
+              <BlurImage src={cert.logo} alt={cert.title} />
             </div>
 
             <div className="certification-body">

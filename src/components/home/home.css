@@ -146,10 +146,4 @@
   height: 100%;
   border-radius: 20px;
   object-fit: cover;
-  transition: filter 0.35s ease, transform 0.35s ease;
-}
-
-.hero-photo:hover {
-  filter: blur(3px) brightness(0.75);
-  transform: scale(1.03);
 }

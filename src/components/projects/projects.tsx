@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { projectsList } from "./projects_list";
 import { getProgramMeta } from "./project_programs";
+import BlurImage from "../blur_image/BlurImage";
 
 function Projects() {
   return (
@@ -12,7 +13,7 @@ function Projects() {
       <div className="project-cards-container">
         {projectsList.map((project, index) => (
           <div className="project-card visible" key={index}>
-            <img
+            <BlurImage
               src={project.image}
               alt={project.title}
               className="project-img"

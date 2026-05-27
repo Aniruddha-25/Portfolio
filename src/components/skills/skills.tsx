@@ -1,6 +1,7 @@
 import "./skills.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { skillsList } from "./skills_list";
+import BlurImage from "../blur_image/BlurImage";
 function Skills() {
   return (
     <section id="skills" className="section">
@@ -18,7 +19,7 @@ function Skills() {
             <ul className="skill-details">
               {category.items.map((item, i) => (
                 <li key={i}>
-                  <img
+                  <BlurImage
                     src={item.icon}
                     alt={item.name}
                     className="skill-icon"

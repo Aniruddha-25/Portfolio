@@ -2,6 +2,7 @@ import "./education.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { educationList } from "./education_list";
+import BlurImage from "../blur_image/BlurImage";
 
 function Education() {
   return (
@@ -12,7 +13,7 @@ function Education() {
         {educationList.map((edu, index) => (
           <article className="education-card visible" key={index}>
             <div className="education-logo">
-              <img src={edu.logo} alt={edu.institution} />
+              <BlurImage src={edu.logo} alt={edu.institution} />
             </div>
 
             <div className="education-body">

@@ -63,12 +63,6 @@
   max-width: 100%;
   height: auto;
   object-fit: contain;
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.education-logo:hover img {
-  filter: blur(2px) brightness(0.75);
-  transform: scale(1.05);
 }
 
 .education-logo:hover {

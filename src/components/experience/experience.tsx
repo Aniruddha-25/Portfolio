@@ -15,6 +15,8 @@ import {
   faPython,
 } from "@fortawesome/free-brands-svg-icons";
 
+import BlurImage from "../blur_image/BlurImage";
+
 function Experience() {
   const nicoznLogo = new URL(
     "../../assets/img/internship/nicozn-technologies.webp",
@@ -37,7 +39,7 @@ function Experience() {
         {/* ----------- Experience 1 ----------- */}
         <article className="experience-card">
           <div className="experience-logo">
-            <img src={nicoznLogo} alt="Nicozn Technologies Logo" />
+            <BlurImage src={nicoznLogo} alt="Nicozn Technologies Logo" />
           </div>
 
           <div className="experience-body">
@@ -108,12 +110,12 @@ function Experience() {
         {/* ----------- Experience 2 ----------- */}
         <article className="experience-card">
           <div className="experience-logo dual">
-            <img
+            <BlurImage
               src={suprajitLogo}
               alt="Suprajit Engineering Limited Logo"
               className="suprajit-logo"
             />
-            <img
+            <BlurImage
               src={suprajitNameLogo}
               alt="Suprajit Engineering Limited wordmark"
               className="suprajit-name-logo"

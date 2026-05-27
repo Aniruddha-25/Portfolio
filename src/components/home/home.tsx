@@ -1,6 +1,7 @@
 import "./home.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import BlurImage from "../blur_image/BlurImage";
 import {
   faBullseye,
   faDownload,
@@ -89,7 +90,7 @@ function Home() {
 
           <div className="hero-card">
             <div className="hero-photo-frame">
-              <img
+              <BlurImage
                 src={heroImage}
                 alt="Aniruddha Salvankar"
                 className="hero-photo"
