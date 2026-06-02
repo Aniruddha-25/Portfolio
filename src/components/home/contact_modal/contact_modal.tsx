@@ -85,7 +85,7 @@ function ContactModal({ open, onClose }: Props) {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/aniruddha-salvankar"
+            href="https://www.linkedin.com/in/aniruddha-salvankar-193642264/"
             target="_blank"
             className="contact-model-option linkedin"
           >
