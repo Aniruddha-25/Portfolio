@@ -19,7 +19,9 @@ function Home() {
   const heroImage = new URL("../../assets/img/img.jpg", import.meta.url).href;
   
 const animatedPhrases = [
-  "What Technology Enables",
+  "What People Need",
+  "What Businesses Use",
+  "What Technology Enables"
 ];
 
   const typingText = useAutoTyping({
