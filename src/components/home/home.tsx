@@ -12,10 +12,22 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faFigma } from "@fortawesome/free-brands-svg-icons";
 import ContactModal from "./contact_modal/contact_modal";
+import { useAutoTyping } from "./useAutoTyping";
 
 function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const heroImage = new URL("../../assets/img/img.jpg", import.meta.url).href;
+  
+const animatedPhrases = [
+  "What Technology Enables",
+];
+
+  const typingText = useAutoTyping({
+    phrases: animatedPhrases,
+    typingSpeed: 100,
+    deletingSpeed: 50,
+    delayBetweenPhrases: 2500,
+  });
 
   function handleOpen() {
     console.log("Let's Connect button clicked");
@@ -37,9 +49,10 @@ function Home() {
             <h1>Hi, I'm Aniruddha Salvankar</h1>
 
             <p className="hero-lead">
-              I build intelligent, ML-powered Web Applications that turn
-              Complexity into Clarity—Simple, Intuitive, and Crafted for an
-              Exceptional User Experience.
+              <span className="static-text">I Create</span>
+              <br />
+              <span className="typing-text">{typingText}</span>
+              <span className="typing-cursor"></span>
             </p>
 
             <div className="hero-actions">
