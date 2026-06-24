@@ -6,6 +6,7 @@ import {
   faDatabase,
 } from "@fortawesome/free-solid-svg-icons";
 import {
+  faAws,
   faCss3Alt,
   faFigma,
   faGoogle,
@@ -13,21 +14,26 @@ import {
   faJs,
   faNodeJs,
   faPython,
+  faReact,
 } from "@fortawesome/free-brands-svg-icons";
 
 import BlurImage from "../blur_image/BlurImage";
 
 function Experience() {
   const nicoznLogo = new URL(
-    "../../assets/img/internship/nicozn-technologies.webp",
+    "../../assets/img/experience/internship/nicozn-technologies.webp",
     import.meta.url,
   ).href;
   const suprajitLogo = new URL(
-    "../../assets/img/internship/suprajit-logo.svg",
+    "../../assets/img/experience/internship/suprajit-logo.svg",
     import.meta.url,
   ).href;
   const suprajitNameLogo = new URL(
-    "../../assets/img/internship/suprajit-name.svg",
+    "../../assets/img/experience/internship/suprajit-name.svg",
+    import.meta.url,
+  ).href;
+  const falkondataLogo = new URL(
+    "../../assets/img/experience/falkondata.webp",
     import.meta.url,
   ).href;
 
@@ -177,6 +183,69 @@ function Experience() {
               <a
                 className="btn"
                 href="https://suprajit.com/"
+                target="_blank"
+                rel="noopener"
+              >
+                <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                <span>Visit Website</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        {/* ----------- Experience 3 ----------- */}
+        <article className="experience-card">
+          <div className="experience-logo">
+            <BlurImage src={falkondataLogo} alt="Falkondata Logo" />
+          </div>
+
+          <div className="experience-body">
+            <div className="experience-header">
+              <div>
+                <p className="experience-company">Falkondata</p>
+                <p className="experience-project-line">
+                  Project: Cloud-Based Healthcare Integration Solutions
+                </p>
+                <span className="experience-pill">
+                  Junior Software Engineer Consultant
+                </span>
+              </div>
+
+              <span className="experience-duration">May 2026 – Present</span>
+            </div>
+
+            <ul className="experience-highlights">
+              <li>
+                Technologies used :
+                <span className="experience-tags">
+                  <span className="tech-badge">
+                    <FontAwesomeIcon icon={faReact} /> React.js
+                  </span>
+                  <span className="tech-badge">
+                    <FontAwesomeIcon icon={faNodeJs} /> Node.js
+                  </span>
+                  <span className="tech-badge">
+                    <FontAwesomeIcon icon={faAws} /> AWS
+                  </span>
+                </span>
+              </li>
+
+              <li>
+                Developed Cloud-Based Healthcare Integration Solutions for
+                Hospitals, Laboratories, and Healthcare Providers using
+                React.js, Node.js, and AWS.
+              </li>
+
+              <li>
+                Designed Scalable APIs and Automated Patient Data Workflows to
+                Support Seamless Healthcare Interoperability.
+              </li>
+            </ul>
+
+            <div className="experience-actions">
+              <a
+                className="btn"
+                href="https://falkondata.com/"
                 target="_blank"
                 rel="noopener"
               >

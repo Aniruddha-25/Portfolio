@@ -865,10 +865,20 @@
     border-radius: 14px;
   }
 
-  .hero-text h1 {
-    font-size: clamp(1.3rem, 9vw, 1.7rem);
-    margin-bottom: 10px;
-  }
+ /* <= 600px */
+.hero-text h1 {
+  font-size: clamp(2rem, 8vw, 2.4rem);   /* was 1.8rem → raise to 2rem */
+}
+
+/* <= 480px */
+.hero-text h1 {
+  font-size: clamp(1.9rem, 10vw, 2.2rem); /* was 1.6rem → raise to 1.9rem */
+}
+
+/* <= 320px */
+.hero-text h1 {
+  font-size: clamp(1.6rem, 9vw, 1.7rem);  /* was 1.3rem → raise to 1.6rem */
+}
 
   .hero-lead {
     font-size: 0.8rem;
