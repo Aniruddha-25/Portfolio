@@ -225,7 +225,7 @@ function Experience() {
                     <FontAwesomeIcon icon={faNodeJs} /> Node.js
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faAws} /> AWS
+                    <FontAwesomeIcon icon={faAws} /> Amazon Web Services
                   </span>
                 </span>
               </li>
