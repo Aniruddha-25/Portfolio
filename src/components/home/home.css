@@ -47,12 +47,17 @@
 }
 
 .hero-lead {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  line-height: 1.3;
+  font-size: clamp(1.35rem, 2.6vw, 2rem);
+  line-height: 1.35;
   color: var(--text-light);
   margin-bottom: 28px;
+  /* Block sits centered, but the words inside start flush left */
+  margin-inline: auto;
+  width: fit-content;
+  max-width: 100%;
+  text-align: left;
   font-weight: bold;
-  letter-spacing: 3px;
+  letter-spacing: 0.02em;
 }
 
 .hero-actions {
@@ -154,25 +159,42 @@
 
 /* === Typing Animation === */
 .static-text {
+  display: block;
   color: var(--text-light);
   font-weight: bold;
-  letter-spacing: 3px;
+}
+
+/* Reserves the line so the layout never jumps between phrases. The sizer and
+   the live text share one grid cell, so the line stays as wide as the longest
+   phrase and the centered block never slides while typing. */
+.typing-line {
+  display: grid;
+  min-height: 1.35em;
+}
+
+.typing-line > * {
+  grid-area: 1 / 1;
+}
+
+.typing-sizer {
+  visibility: hidden;
+  padding-right: 0.21em; /* room for the cursor */
 }
 
 .typing-text {
   color: var(--primary-lighter);
   font-weight: bold;
-  letter-spacing: 3px;
 }
 
 .typing-cursor {
   display: inline-block;
-  width: 2px;
+  width: 0.09em;
+  min-width: 2px;
   height: 1em;
   background-color: var(--primary-lighter);
-  margin-left: 4px;
+  margin-left: 0.12em;
   animation: blink 0.7s infinite;
-  vertical-align: text-bottom;
+  vertical-align: -0.12em;
 }
 
 @keyframes blink {

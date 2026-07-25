@@ -24,6 +24,12 @@ const animatedPhrases = [
   "What Technology Enables"
 ];
 
+  // Holds the line width so the centered block doesn't shift while typing
+  const longestPhrase = animatedPhrases.reduce(
+    (longest, phrase) => (phrase.length > longest.length ? phrase : longest),
+    ""
+  );
+
   const typingText = useAutoTyping({
     phrases: animatedPhrases,
     typingSpeed: 100,
@@ -52,9 +58,15 @@ const animatedPhrases = [
 
             <p className="hero-lead">
               <span className="static-text">I Create</span>
-              <br />
-              <span className="typing-text">{typingText}</span>
-              <span className="typing-cursor"></span>
+              <span className="typing-line">
+                <span className="typing-sizer" aria-hidden="true">
+                  {longestPhrase}
+                </span>
+                <span>
+                  <span className="typing-text">{typingText}</span>
+                  <span className="typing-cursor" aria-hidden="true"></span>
+                </span>
+              </span>
             </p>
 
             <div className="hero-actions">
