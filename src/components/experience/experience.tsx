@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
   faBolt,
-  faDatabase,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faAws,
