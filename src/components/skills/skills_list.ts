@@ -1,12 +1,10 @@
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
-  faMicrochip,
   faCode,
   faDatabase,
-  faScrewdriverWrench,
   faServer,
 } from "@fortawesome/free-solid-svg-icons";
-import { faReact } from "@fortawesome/free-brands-svg-icons";
+import { faReact, faCopilot, faSquareGit } from "@fortawesome/free-brands-svg-icons";
 
 export type SkillItem = {
   name: string;
@@ -70,7 +68,7 @@ export const skillsList: SkillCategory[] = [
   },
   {
     title: "Data Analytics & ML Tooling",
-    icon: faMicrochip,
+    icon: faCopilot,
     items: [
       { name: "Pandas", icon: "skills/data-ml-tools/pandas.svg" },
       { name: "NumPy", icon: "skills/data-ml-tools/numpy.svg" },
@@ -81,7 +79,7 @@ export const skillsList: SkillCategory[] = [
   },
   {
     title: "Tools & Technologies",
-    icon: faScrewdriverWrench,
+    icon: faSquareGit,
     items: [
       { name: "Linux (Ubuntu)", icon: "skills/tools-and-technologies/linux.svg" },
       { name: "VS Code", icon: "skills/tools-and-technologies/vs-code.svg" },

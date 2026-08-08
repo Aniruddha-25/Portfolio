@@ -13,6 +13,7 @@ import {
   faHtml5,
   faJs,
   faNodeJs,
+  faPostgresql,
   faPython,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
@@ -163,7 +164,7 @@ function Experience() {
                     <FontAwesomeIcon icon={faPython} /> Flask
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faDatabase} /> PostgreSQL
+                    <FontAwesomeIcon icon={faPostgresql} /> PostgreSQL
                   </span>
                 </span>
               </li>

@@ -7,12 +7,12 @@ import {
   faDownload,
   faHandshake,
   faLocationDot,
-  faRobot,
   faServer,
 } from "@fortawesome/free-solid-svg-icons";
-import { faFigma } from "@fortawesome/free-brands-svg-icons";
+import { faFigma, faCopilot } from "@fortawesome/free-brands-svg-icons";
 import ContactModal from "./contact_modal/contact_modal";
 import { useAutoTyping } from "./useAutoTyping";
+
 
 function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -102,7 +102,7 @@ const animatedPhrases = [
 
                 <ul className="hero-value hero-focus-list">
                   <li className="hero-focus-item">
-                    <FontAwesomeIcon icon={faRobot} /> AI/ML Engineering
+                    <FontAwesomeIcon icon={faCopilot} /> AI/ML Engineering
                   </li>
                   <li className="hero-focus-item">
                     <FontAwesomeIcon icon={faServer} /> Full-Stack Development
