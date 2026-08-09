@@ -14,7 +14,8 @@ type Props = {
 function CertificationViewer({ open, pdfUrl, onClose }: Props) {
   const [progress, setProgress] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [blobUrl, setBlobUrl] = useState<string | null>(null);
+  const revealTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -24,45 +25,94 @@ function CertificationViewer({ open, pdfUrl, onClose }: Props) {
     return () => document.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
+  // Some of these certificate PDFs are multi-megabyte scans, so the fetch
+  // itself takes real time. Track actual bytes received via the response
+  // stream instead of faking a time-based ramp — the percentage shown is
+  // then genuinely concurrent with the real download, not decorative. The
+  // embed only ever gets a blob of the fully-downloaded PDF, so its own
+  // load is instant off local memory, leaving just the plugin's internal
+  // render time (still not observable, but now the only unaccounted gap).
   useEffect(() => {
-    if (!open) {
+    if (!open || !pdfUrl) {
       setProgress(0);
       setLoaded(false);
+      setBlobUrl(null);
       return;
     }
 
     setProgress(0);
     setLoaded(false);
+    setBlobUrl(null);
 
-    intervalRef.current = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 90) {
-          clearInterval(intervalRef.current!);
-          return 90;
+    const controller = new AbortController();
+    let cancelled = false;
+    let objectUrl: string | null = null;
+
+    (async () => {
+      try {
+        const response = await fetch(pdfUrl, { signal: controller.signal });
+        if (!response.ok || !response.body) throw new Error(`Fetch failed: ${response.status}`);
+
+        const totalBytes = Number(response.headers.get("Content-Length")) || 0;
+        const reader = response.body.getReader();
+        const chunks: BlobPart[] = [];
+        let receivedBytes = 0;
+
+        for (;;) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          chunks.push(value);
+          receivedBytes += value.byteLength;
+          if (totalBytes > 0) {
+            setProgress(Math.min((receivedBytes / totalBytes) * 100, 99));
+          }
         }
-        const increment = prev < 30 ? 8 : prev < 60 ? 4 : prev < 80 ? 2 : 0.5;
-        return Math.min(prev + increment, 90);
-      });
-    }, 150);
+        if (cancelled) return;
 
-    // Fallback: force complete after 3.5 s if onLoad never fires
-    const fallback = setTimeout(() => forceComplete(), 3500);
+        objectUrl = URL.createObjectURL(new Blob(chunks, { type: "application/pdf" }));
+        setProgress(100);
+        setBlobUrl(objectUrl);
+      } catch (err) {
+        if (cancelled || (err instanceof DOMException && err.name === "AbortError")) return;
+        // Fall back to letting the embed fetch the URL directly.
+        setProgress(100);
+        setBlobUrl(pdfUrl);
+      }
+    })();
 
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      clearTimeout(fallback);
+      cancelled = true;
+      controller.abort();
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
     };
   }, [open, pdfUrl]);
 
-  function forceComplete() {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    setProgress(100);
-    setTimeout(() => setLoaded(true), 400);
+  // The embed's onLoad fires once the plugin has accepted the bytes, not
+  // once it has actually finished rendering the page — that happens
+  // asynchronously inside the plugin with no JS event to hook into. Hold
+  // briefly before revealing so the plugin has almost always finished
+  // painting by the time our overlay is gone.
+  function handleIframeLoad() {
+    if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
+    revealTimerRef.current = setTimeout(() => setLoaded(true), 400);
   }
 
-  function handleIframeLoad() {
-    forceComplete();
-  }
+  // onLoad isn't guaranteed to fire for every browser/PDF-plugin combination
+  // (some don't support embedded PDF rendering at all). Without a fallback,
+  // a missing onLoad would leave the overlay stuck at 100% forever, which is
+  // worse than the original mismatch this was meant to fix.
+  useEffect(() => {
+    if (!blobUrl) return;
+    const fallback = setTimeout(() => setLoaded(true), 3000);
+    return () => clearTimeout(fallback);
+  }, [blobUrl]);
+
+  useEffect(
+    () => () => {
+      if (revealTimerRef.current) clearTimeout(revealTimerRef.current);
+    },
+    [],
+  );
 
   if (!open) return null;
 
@@ -103,14 +153,16 @@ function CertificationViewer({ open, pdfUrl, onClose }: Props) {
             </div>
           )}
 
-          <embed
-            key={pdfUrl}
-            src={pdfUrl}
-            type="application/pdf"
-            className="certification-viewer-iframe"
-            style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.4s ease" }}
-            onLoad={handleIframeLoad}
-          />
+          {blobUrl && (
+            <embed
+              key={blobUrl}
+              src={blobUrl}
+              type="application/pdf"
+              className="certification-viewer-iframe"
+              style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.4s ease" }}
+              onLoad={handleIframeLoad}
+            />
+          )}
         </div>
       </div>
     </div>
