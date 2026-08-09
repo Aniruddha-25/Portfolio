@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { prioritizeSectionsUpTo } from "../lazy_section/sectionQueue";
 
 export default function useNavigation() {
   useEffect(() => {
@@ -10,6 +11,53 @@ export default function useNavigation() {
       if (!navLinks.length || !sections.length) {
         return () => {};
       }
+
+      // Lazy sections may still be at their placeholder size when a jump
+      // starts; force every section up to the target to mount and wait for
+      // layout to settle so the computed scroll target reflects real
+      // heights, not collapsed placeholders.
+      const waitForStableLayout = (targetId: string) =>
+        new Promise<void>((resolve) => {
+          prioritizeSectionsUpTo(targetId);
+          // Revealed sections still need a render pass to mount, so give
+          // height changes a moment to happen rather than just one frame.
+          const maxWaitMs = 800;
+          const pollIntervalMs = 50;
+          const stableChecksNeeded = 3;
+          const start = Date.now();
+          let lastHeight = -1;
+          let stableChecks = 0;
+          const poll = () => {
+            const height = document.documentElement.scrollHeight;
+            if (height === lastHeight) {
+              stableChecks += 1;
+            } else {
+              stableChecks = 0;
+              lastHeight = height;
+            }
+            if (stableChecks >= stableChecksNeeded || Date.now() - start >= maxWaitMs) {
+              resolve();
+              return;
+            }
+            setTimeout(poll, pollIntervalMs);
+          };
+          setTimeout(poll, pollIntervalMs);
+        });
+
+      // Re-queries the target after waiting: revealing a lazy section swaps
+      // its placeholder <section> for the real component's own <section>,
+      // so a node reference captured before the wait would go stale.
+      const scrollToSection = async (targetSelector: string) => {
+        await waitForStableLayout(targetSelector.replace(/^#/, ""));
+        const targetSection = document.querySelector<HTMLElement>(targetSelector);
+        if (!targetSection) return;
+        const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        window.scrollTo({
+          top: Math.min(targetTop, maxScroll),
+          behavior: "smooth",
+        });
+      };
 
       const clearActive = () => navLinks.forEach((link) => link.classList.remove("active"));
 
@@ -46,14 +94,9 @@ export default function useNavigation() {
         const handler = (event: Event) => {
           const targetSelector = link.getAttribute("href");
           const targetSection = targetSelector ? document.querySelector<HTMLElement>(targetSelector) : null;
-          if (targetSection) {
+          if (targetSection && targetSelector) {
             event.preventDefault();
-            const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            window.scrollTo({
-              top: Math.min(targetTop, maxScroll),
-              behavior: "smooth",
-            });
+            void scrollToSection(targetSelector);
           }
           setActiveLink(targetSelector);
         };
@@ -69,14 +112,9 @@ export default function useNavigation() {
         const handler = (event: Event) => {
           const targetSelector = anchor.getAttribute("href");
           const targetSection = targetSelector ? document.querySelector<HTMLElement>(targetSelector) : null;
-          if (!targetSection) return;
+          if (!targetSection || !targetSelector) return;
           event.preventDefault();
-          const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
-          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-          window.scrollTo({
-            top: Math.min(targetTop, maxScroll),
-            behavior: "smooth",
-          });
+          void scrollToSection(targetSelector);
           setActiveLink(targetSelector);
         };
 

@@ -121,6 +121,7 @@ const animatedPhrases = [
                 src={heroImage}
                 alt="Aniruddha Salvankar"
                 className="hero-photo"
+                priority
               />
             </div>
           </div>

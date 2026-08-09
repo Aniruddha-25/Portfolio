@@ -23,7 +23,6 @@ function Skills() {
                     src={item.icon}
                     alt={item.name}
                     className="skill-icon"
-                    loading="lazy"
                   />
                   {item.name}
                 </li>

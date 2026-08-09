@@ -17,7 +17,6 @@ function Projects() {
               src={project.image}
               alt={project.title}
               className="project-img"
-              loading="lazy"
             />
 
             <div className="project-overlay">
