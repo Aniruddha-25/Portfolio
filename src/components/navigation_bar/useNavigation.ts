@@ -55,15 +55,14 @@ export default function useNavigation() {
           setTimeout(poll, pollIntervalMs);
         });
 
-      // Mounting sections ahead of the target (waitForStableLayout) and the
-      // smooth-scroll animation itself both fire real 'scroll' events before
-      // the user's intended destination is reached — browsers apply scroll
-      // anchoring to compensate for the layout shift, and the smooth scroll
-      // passes through every section in between. Left unchecked, those
-      // transient events make updateActiveOnScroll briefly highlight the
-      // wrong link mid-navigation. navigationInFlight suppresses highlight
-      // updates for the duration and resyncs once the scroll truly settles.
-      let navigationInFlight = false;
+      // Mounting sections ahead of the target (waitForStableLayout) shifts
+      // layout before the user's intended scroll even starts — browsers
+      // apply scroll anchoring to compensate, which fires a real 'scroll'
+      // event and would briefly flash the wrong link active. Suppress only
+      // for that pre-scroll window; once the actual smooth-scroll animation
+      // begins, real 'scroll' events should keep driving the highlight
+      // section-by-section as it passes each one, same as a manual scroll.
+      let suppressDuringPreScroll = false;
 
       const waitForScrollEnd = () =>
         new Promise<void>((resolve) => {
@@ -83,22 +82,22 @@ export default function useNavigation() {
       // its placeholder <section> for the real component's own <section>,
       // so a node reference captured before the wait would go stale.
       const scrollToSection = async (targetSelector: string) => {
-        navigationInFlight = true;
+        suppressDuringPreScroll = true;
         try {
           await waitForStableLayout(targetSelector.replace(/^#/, ""));
-          const targetSection = document.querySelector<HTMLElement>(targetSelector);
-          if (!targetSection) return;
-          const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
-          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-          window.scrollTo({
-            top: Math.min(targetTop, maxScroll),
-            behavior: "smooth",
-          });
-          await waitForScrollEnd();
         } finally {
-          navigationInFlight = false;
-          updateActiveOnScroll();
+          suppressDuringPreScroll = false;
         }
+        const targetSection = document.querySelector<HTMLElement>(targetSelector);
+        if (!targetSection) return;
+        const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        window.scrollTo({
+          top: Math.min(targetTop, maxScroll),
+          behavior: "smooth",
+        });
+        await waitForScrollEnd();
+        updateActiveOnScroll();
       };
 
       const clearActive = () => navLinks.forEach((link) => link.classList.remove("active"));
@@ -111,7 +110,7 @@ export default function useNavigation() {
       };
 
       const updateActiveOnScroll = () => {
-        if (navigationInFlight) return;
+        if (suppressDuringPreScroll) return;
         const sections = getSections();
         let currentSection = sections[0]?.id || "";
         const scrollPosition = window.scrollY + window.innerHeight;
@@ -141,8 +140,9 @@ export default function useNavigation() {
           if (targetSection && targetSelector) {
             event.preventDefault();
             void scrollToSection(targetSelector);
+          } else {
+            setActiveLink(targetSelector);
           }
-          setActiveLink(targetSelector);
         };
 
         link.addEventListener("click", handler);
@@ -159,7 +159,6 @@ export default function useNavigation() {
           if (!targetSection || !targetSelector) return;
           event.preventDefault();
           void scrollToSection(targetSelector);
-          setActiveLink(targetSelector);
         };
 
         anchor.addEventListener("click", handler);
