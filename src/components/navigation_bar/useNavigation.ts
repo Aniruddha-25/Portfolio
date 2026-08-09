@@ -6,11 +6,22 @@ export default function useNavigation() {
     // Navigation init (handles sidebar highlighting and smooth scrolling)
     const initNavigation = () => {
       const navLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>(".sidebar ul li a"));
-      const sections = Array.from(document.querySelectorAll<HTMLElement>("section"));
+      const sectionIds = navLinks
+        .map((link) => link.getAttribute("href")?.replace(/^#/, ""))
+        .filter((id): id is string => Boolean(id));
 
-      if (!navLinks.length || !sections.length) {
+      if (!navLinks.length || !sectionIds.length) {
         return () => {};
       }
+
+      // Lazy sections swap their placeholder <section> node for a new one
+      // owned by the real component once it mounts, so a node list captured
+      // once at init would go stale. Re-resolve live nodes by id every time
+      // instead of caching them.
+      const getSections = () =>
+        sectionIds
+          .map((id) => document.getElementById(id))
+          .filter((el): el is HTMLElement => Boolean(el));
 
       // Lazy sections may still be at their placeholder size when a jump
       // starts; force every section up to the target to mount and wait for
@@ -44,19 +55,50 @@ export default function useNavigation() {
           setTimeout(poll, pollIntervalMs);
         });
 
+      // Mounting sections ahead of the target (waitForStableLayout) and the
+      // smooth-scroll animation itself both fire real 'scroll' events before
+      // the user's intended destination is reached — browsers apply scroll
+      // anchoring to compensate for the layout shift, and the smooth scroll
+      // passes through every section in between. Left unchecked, those
+      // transient events make updateActiveOnScroll briefly highlight the
+      // wrong link mid-navigation. navigationInFlight suppresses highlight
+      // updates for the duration and resyncs once the scroll truly settles.
+      let navigationInFlight = false;
+
+      const waitForScrollEnd = () =>
+        new Promise<void>((resolve) => {
+          let settled = false;
+          const finish = () => {
+            if (settled) return;
+            settled = true;
+            window.removeEventListener("scrollend", finish);
+            resolve();
+          };
+          window.addEventListener("scrollend", finish, { once: true });
+          // Fallback for browsers without 'scrollend' (or a no-op scroll).
+          setTimeout(finish, 1000);
+        });
+
       // Re-queries the target after waiting: revealing a lazy section swaps
       // its placeholder <section> for the real component's own <section>,
       // so a node reference captured before the wait would go stale.
       const scrollToSection = async (targetSelector: string) => {
-        await waitForStableLayout(targetSelector.replace(/^#/, ""));
-        const targetSection = document.querySelector<HTMLElement>(targetSelector);
-        if (!targetSection) return;
-        const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        window.scrollTo({
-          top: Math.min(targetTop, maxScroll),
-          behavior: "smooth",
-        });
+        navigationInFlight = true;
+        try {
+          await waitForStableLayout(targetSelector.replace(/^#/, ""));
+          const targetSection = document.querySelector<HTMLElement>(targetSelector);
+          if (!targetSection) return;
+          const targetTop = targetSection.getBoundingClientRect().top + window.scrollY;
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          window.scrollTo({
+            top: Math.min(targetTop, maxScroll),
+            behavior: "smooth",
+          });
+          await waitForScrollEnd();
+        } finally {
+          navigationInFlight = false;
+          updateActiveOnScroll();
+        }
       };
 
       const clearActive = () => navLinks.forEach((link) => link.classList.remove("active"));
@@ -69,6 +111,8 @@ export default function useNavigation() {
       };
 
       const updateActiveOnScroll = () => {
+        if (navigationInFlight) return;
+        const sections = getSections();
         let currentSection = sections[0]?.id || "";
         const scrollPosition = window.scrollY + window.innerHeight;
         const pageHeight = document.documentElement.scrollHeight;
