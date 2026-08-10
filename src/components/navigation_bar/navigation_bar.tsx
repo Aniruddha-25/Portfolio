@@ -3,15 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAddressCard,
   faBrain,
-  faBriefcase,
+  faBuildingUser,
   faCertificate,
   faComment,
   faGraduationCap,
   faHome,
   faLaptop,
-  faLayerGroup,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { faGitAlt } from "@fortawesome/free-brands-svg-icons";
+
 import useNavigation from "./useNavigation";
 
 function Navbar() {
@@ -51,7 +52,7 @@ function Navbar() {
           </li>
           <li>
             <a href="#experience" onClick={closeSidebar}>
-              <FontAwesomeIcon icon={faBriefcase} /> Experience
+              <FontAwesomeIcon icon={faBuildingUser} /> Experience
             </a>
           </li>
           <li>
@@ -71,7 +72,7 @@ function Navbar() {
           </li>
           <li>
             <a href="#portfolio" onClick={closeSidebar}>
-              <FontAwesomeIcon icon={faLayerGroup} /> Projects
+              <FontAwesomeIcon icon={faGitAlt} /> Projects
             </a>
           </li>
           <li>
