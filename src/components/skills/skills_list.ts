@@ -2,7 +2,7 @@ import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
   faCode,
   faDatabase,
-  faServer,
+  faSitemap,
 } from "@fortawesome/free-solid-svg-icons";
 import { faReact, faCopilot, faSquareGit } from "@fortawesome/free-brands-svg-icons";
 
@@ -59,7 +59,7 @@ export const skillsList: SkillCategory[] = [
   },
   {
     title: "Frameworks",
-    icon: faServer,
+    icon: faSitemap,
     items: [
       { name: "Django", icon: "skills/frameworks/django.svg" },
       { name: "Flask", icon: "skills/frameworks/flask.svg" },
