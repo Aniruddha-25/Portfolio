@@ -6,17 +6,15 @@ function About() {
 
       <div className="about-simple">
         <p>
-          Aspiring AI & ML Engineer with a strong foundation in Python, Java,
-          and core machine learning principles gained through internships and
-          academic projects. Proficient in Scikit-learn, Pandas, NumPy, Flask,
-          and experienced in data preprocessing, model development, and API
-          integration.
+          I build intelligent systems and the products around them. My core
+          focus is AI & Machine Learning—turning data into models, insights, and
+          real-world solutions.
         </p>
 
         <p>
-          Passionate about building data-driven solutions to solve real-world
-          problems, with a focus on continuous learning and improving technical
-          and analytical skills.
+          With full-stack development, I take those ideas beyond the model and
+          turn them into complete products—from APIs and databases to interfaces
+          people actually use.
         </p>
       </div>
     </section>

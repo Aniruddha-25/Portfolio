@@ -231,14 +231,20 @@ function Experience() {
               </li>
 
               <li>
-                Developed Cloud-Based Healthcare Integration Solutions for
-                Hospitals, Laboratories, and Healthcare Providers using
-                React.js, Node.js, and AWS.
+                Built and enhanced <strong>React.js</strong> frontend features
+                and <strong>Node.js</strong> backend services for healthcare
+                workflows.
               </li>
-
               <li>
-                Designed Scalable APIs and Automated Patient Data Workflows to
-                Support Seamless Healthcare Interoperability.
+                Integrated healthcare systems such as{" "}
+                <strong>AdvancedMD</strong> and <strong>SimpleChime</strong>,
+                implementing patient data synchronization, HL7 lab-result
+                processing, validation, retries, and error handling.
+              </li>
+              <li>
+                Investigated and resolved production issues involving{" "}
+                <strong>API failures, duplicate processing, timeouts,</strong>{" "}
+                and <strong>rate limits</strong> across healthcare workflows.
               </li>
             </ul>
 
