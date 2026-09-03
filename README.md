@@ -55,7 +55,7 @@ Key advantages:
 
 ## Main Dependencies
 
-```json
+```JSON
 "version": "0.0.0",
 "dependencies": {
   "@emailjs/browser": "^4.4.1",
