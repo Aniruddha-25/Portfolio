@@ -1,8 +1,9 @@
 import "./home.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BlurImage from "../blur_image/BlurImage";
 import {
+  faBriefcase,
   faBullseye,
   faDownload,
   faHandshake,
@@ -12,10 +13,13 @@ import {
 import { faFigma, faCopilot } from "@fortawesome/free-brands-svg-icons";
 import ContactModal from "./contact_modal/contact_modal";
 import { useAutoTyping } from "./useAutoTyping";
+import { professionalExperiences } from "../experience/experienceData";
+import { calculateTotalProfessionalExperience } from "../../utils/experienceCalculator";
 
 
 function Home() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [referenceDate, setReferenceDate] = useState(() => new Date());
   const heroImage = new URL("../../assets/img/img.jpg", import.meta.url).href;
   
 const animatedPhrases = [
@@ -37,6 +41,26 @@ const animatedPhrases = [
     delayBetweenPhrases: 2500,
   });
 
+  useEffect(() => {
+    let timeout: number;
+    const scheduleNextDay = () => {
+      const nextDay = new Date();
+      nextDay.setHours(24, 0, 0, 0);
+      timeout = window.setTimeout(() => {
+        setReferenceDate(new Date());
+        scheduleNextDay();
+      }, nextDay.getTime() - Date.now());
+    };
+
+    scheduleNextDay();
+    return () => window.clearTimeout(timeout);
+  }, []);
+
+  const currentProfessionalExperience = professionalExperiences[0];
+  const totalProfessionalExperience = calculateTotalProfessionalExperience(
+    professionalExperiences,
+    referenceDate,
+  );
   function handleOpen() {
     console.log("Let's Connect button clicked");
     setModalOpen(true);
@@ -86,7 +110,39 @@ const animatedPhrases = [
             </div>
 
             <div className="hero-meta">
-              <div className="hero-meta-block">
+              <article
+                className="hero-meta-block hero-experience"
+                aria-label="Current professional experience"
+              >
+                <span className="hero-label hero-experience-label">
+                  <FontAwesomeIcon icon={faBriefcase} />
+                  <span>PROFESSIONAL EXPERIENCE</span>
+                </span>
+                <span className="hero-value hero-experience-title">
+                  {currentProfessionalExperience.jobTitle}
+                </span>
+                <div className="hero-experience-details">
+                  <span className="hero-experience-company">
+                    {currentProfessionalExperience.companyName}
+                    <span aria-hidden="true"> · </span>
+                    {currentProfessionalExperience.workArrangement}
+                  </span>
+                </div>
+                <div className="experience-duration-group hero-experience-durations">
+                  <span
+                    className="experience-duration experience-tenure"
+                    aria-label={`Total professional experience: ${
+                      totalProfessionalExperience?.label ??
+                      "Duration unavailable"
+                    }`}
+                  >
+                   {totalProfessionalExperience?.label ??
+                      "Duration unavailable"}
+                  </span>
+                </div>
+              </article>
+
+              <div className="hero-meta-block hero-location">
                 <span className="hero-label" style={{ fontWeight: "bold" }}>
                   <FontAwesomeIcon icon={faLocationDot} />
                   Location
@@ -95,7 +151,7 @@ const animatedPhrases = [
                 <span className="hero-value">Bangalore, India</span>
               </div>
 
-              <div className="hero-meta-block">
+              <div className="hero-meta-block hero-focus">
                 <span className="hero-label" style={{ fontWeight: "bold" }}>
                   <FontAwesomeIcon icon={faBullseye} /> Focus
                 </span>

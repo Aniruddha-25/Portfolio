@@ -69,9 +69,55 @@
 
 .hero-meta {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px 32px;
   align-items: start;
+}
+
+.hero-experience {
+  grid-column: 1;
+  grid-row: 1;
+  font-weight:bolder;
+}
+
+.hero-label.hero-experience-label {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.hero-experience-label > span {
+  min-width: 0;
+}
+
+.hero-experience-title {
+  line-height: 1.25;
+}
+
+.hero-experience-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  line-height:2;
+}
+
+.hero-experience-company {
+  color: var(--text-white-muted);
+  font-size: 0.85em;
+}
+
+.hero-experience-durations {
+  justify-content: flex-start;
+}
+
+.hero-location {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.hero-focus {
+  grid-column: 2;
+  grid-row: 1 / span 2;
 }
 
 .hero-meta-block {
@@ -114,7 +160,7 @@
   justify-content: flex-start;
   gap: 10px;
   margin-bottom: 8px;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .hero-focus-item svg {

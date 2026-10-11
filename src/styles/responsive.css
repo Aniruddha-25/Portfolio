@@ -156,14 +156,7 @@
   }
 
   .hero-meta {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-meta-block:last-child {
-    margin-left: 0;
-    width: 100%;
-    align-items: flex-start;
-    text-align: left;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-focus-item {
@@ -468,6 +461,7 @@
   .hero-actions .btn {
     width: 100%;
     text-align: center;
+    justify-content: center;
   }
 }
 
@@ -584,6 +578,21 @@
   .hero-meta {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .hero-experience,
+  .hero-location,
+  .hero-focus {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .hero-lead {
+    text-align: center;
+  }
+
+  .hero-actions {
+    align-items: center;
   }
 }
 
@@ -1272,5 +1281,40 @@
 
   .contact-glass-icon i {
     font-size: 13px;
+  }
+}
+
+@media (min-width: 601px) {
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-lead {
+    text-align: center;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .hero-actions .btn {
+    width: auto;
+    flex: 0 0 auto;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    order: -1;
+    max-width: 400px;
+    margin: 0 auto;
   }
 }

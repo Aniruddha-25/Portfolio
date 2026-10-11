@@ -132,6 +132,18 @@
   align-self: flex-start;
 }
 
+.experience-duration-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.experience-tenure {
+  border: 1px solid var(--primary-overlay-medium);
+}
+
 .experience-highlights {
   list-style: none;
   padding-left: 0;

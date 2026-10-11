@@ -18,8 +18,22 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import BlurImage from "../blur_image/BlurImage";
+import { internshipExperiences, professionalExperiences } from "./experienceData";
+import {
+  calculateInternshipExperience,
+  calculateProfessionalExperience,
+  formatExperienceDateRange,
+} from "../../utils/experienceCalculator";
 
 function Experience() {
+  const nicoznExperience = internshipExperiences.nicozn;
+  const suprajitExperience = internshipExperiences.suprajit;
+  const falkondataExperience = professionalExperiences[0];
+  const nicoznDuration = calculateInternshipExperience(nicoznExperience);
+  const suprajitDuration = calculateInternshipExperience(suprajitExperience);
+  const falkondataDuration =
+    calculateProfessionalExperience(falkondataExperience);
+
   const nicoznLogo = new URL(
     "../../assets/img/experience/internship/nicozn-technologies.webp",
     import.meta.url,
@@ -60,7 +74,18 @@ function Experience() {
                 </span>
               </div>
 
-              <span className="experience-duration">Oct 2023 – Nov 2023</span>
+              <div className="experience-duration-group">
+                <span className="experience-duration">
+                  {formatExperienceDateRange(nicoznExperience) ??
+                    "Dates unavailable"}
+                </span>
+                <span
+                  className="experience-duration experience-tenure"
+                  aria-label={`Nicozn Technologies experience: ${nicoznDuration?.label ?? "Duration unavailable"}`}
+                >
+                  {nicoznDuration?.label ?? "Duration unavailable"}
+                </span>
+              </div>
             </div>
 
             <ul className="experience-highlights">
@@ -140,7 +165,18 @@ function Experience() {
                 </span>
               </div>
 
-              <span className="experience-duration">Mar 2025 – Jun 2025</span>
+              <div className="experience-duration-group">
+                <span className="experience-duration">
+                  {formatExperienceDateRange(suprajitExperience) ??
+                    "Dates unavailable"}
+                </span>
+                <span
+                  className="experience-duration experience-tenure"
+                  aria-label={`Suprajit Engineering Ltd. experience: ${suprajitDuration?.label ?? "Duration unavailable"}`}
+                >
+                  {suprajitDuration?.label ?? "Duration unavailable"}
+                </span>
+              </div>
             </div>
 
             <ul className="experience-highlights">
@@ -202,16 +238,29 @@ function Experience() {
           <div className="experience-body">
             <div className="experience-header">
               <div>
-                <p className="experience-company">Falkondata</p>
+                <p className="experience-company">
+                  {falkondataExperience.companyName}
+                </p>
                 <p className="experience-project-line">
                   Project: Cloud-Based Healthcare Integration Solutions
                 </p>
                 <span className="experience-pill">
-                  Junior Software Engineer Consultant
+                  {falkondataExperience.jobTitle}
                 </span>
               </div>
 
-              <span className="experience-duration">May 2026 – Present</span>
+              <div className="experience-duration-group">
+                <span className="experience-duration">
+                  {formatExperienceDateRange(falkondataExperience) ??
+                    "Dates unavailable"}
+                </span>
+                <span
+                  className="experience-duration experience-tenure"
+                  aria-label={`Falkondata experience: ${falkondataDuration?.label ?? "Duration unavailable"}`}
+                >
+                  {falkondataDuration?.label ?? "Duration unavailable"}
+                </span>
+              </div>
             </div>
 
             <ul className="experience-highlights">
