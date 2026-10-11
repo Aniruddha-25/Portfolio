@@ -56,34 +56,36 @@ function Experience() {
       <h2>Experience</h2>
 
       <div className="experience-list">
-        {/* ----------- Experience 1 ----------- */}
+        {/* ----------- Experience 3 ----------- */}
         <article className="experience-card">
           <div className="experience-logo">
-            <BlurImage src={nicoznLogo} alt="Nicozn Technologies Logo" />
+            <BlurImage src={falkondataLogo} alt="Falkondata Logo" />
           </div>
 
           <div className="experience-body">
             <div className="experience-header">
               <div>
-                <p className="experience-company">Nicozn Technologies</p>
+                <p className="experience-company">
+                  {falkondataExperience.companyName}
+                </p>
                 <p className="experience-project-line">
-                  Project: Rockside Restaurant Webpage
+                  Project: Cloud-Based Healthcare Integration Solutions
                 </p>
                 <span className="experience-pill">
-                  Front-End Developer Intern
+                  {falkondataExperience.jobTitle}
                 </span>
               </div>
 
               <div className="experience-duration-group">
                 <span className="experience-duration">
-                  {formatExperienceDateRange(nicoznExperience) ??
+                  {formatExperienceDateRange(falkondataExperience) ??
                     "Dates unavailable"}
                 </span>
                 <span
                   className="experience-duration experience-tenure"
-                  aria-label={`Nicozn Technologies experience: ${nicoznDuration?.label ?? "Duration unavailable"}`}
+                  aria-label={`Falkondata experience: ${falkondataDuration?.label ?? "Duration unavailable"}`}
                 >
-                  {nicoznDuration?.label ?? "Duration unavailable"}
+                  {falkondataDuration?.label ?? "Duration unavailable"}
                 </span>
               </div>
             </div>
@@ -93,41 +95,39 @@ function Experience() {
                 Technologies used :
                 <span className="experience-tags">
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faHtml5} /> HTML
+                    <FontAwesomeIcon icon={faReact} /> React.js
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faCss3Alt} /> CSS
+                    <FontAwesomeIcon icon={faNodeJs} /> Node.js
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faJs} /> JavaScript
-                  </span>
-                  <span className="tech-badge">
-                    <FontAwesomeIcon icon={faFigma} /> Figma
-                  </span>
-                  <span className="tech-badge">
-                    <FontAwesomeIcon icon={faBolt} /> GSAP
-                  </span>
-                  <span className="tech-badge">
-                    <FontAwesomeIcon icon={faGoogle} /> Firebase
+                    <FontAwesomeIcon icon={faAws} /> Amazon Web Services
                   </span>
                 </span>
               </li>
 
               <li>
-                Built animated hero interactions with GSAP and deployed previews
-                with Firebase Hosting for stakeholder demos.
+                Built and enhanced <strong>React.js</strong> frontend features
+                and <strong>Node.js</strong> backend services for healthcare
+                workflows.
               </li>
-
               <li>
-                Documented responsive guidelines so future interns could extend
-                components without breaking layouts.
+                Integrated healthcare systems such as{" "}
+                <strong>AdvancedMD</strong> and <strong>SimpleChime</strong>,
+                implementing patient data synchronization, HL7 lab-result
+                processing, validation, retries, and error handling.
+              </li>
+              <li>
+                Investigated and resolved production issues involving{" "}
+                <strong>API failures, duplicate processing, timeouts,</strong>{" "}
+                and <strong>rate limits</strong> across healthcare workflows.
               </li>
             </ul>
 
             <div className="experience-actions">
               <a
                 className="btn"
-                href="https://nicozn.com/"
+                href="https://falkondata.com/"
                 target="_blank"
                 rel="noopener"
               >
@@ -228,37 +228,34 @@ function Experience() {
             </div>
           </div>
         </article>
-
-        {/* ----------- Experience 3 ----------- */}
+        {/* ----------- Experience 1 ----------- */}
         <article className="experience-card">
           <div className="experience-logo">
-            <BlurImage src={falkondataLogo} alt="Falkondata Logo" />
+            <BlurImage src={nicoznLogo} alt="Nicozn Technologies Logo" />
           </div>
 
           <div className="experience-body">
             <div className="experience-header">
               <div>
-                <p className="experience-company">
-                  {falkondataExperience.companyName}
-                </p>
+                <p className="experience-company">Nicozn Technologies</p>
                 <p className="experience-project-line">
-                  Project: Cloud-Based Healthcare Integration Solutions
+                  Project: Rockside Restaurant Webpage
                 </p>
                 <span className="experience-pill">
-                  {falkondataExperience.jobTitle}
+                  Front-End Developer Intern
                 </span>
               </div>
 
               <div className="experience-duration-group">
                 <span className="experience-duration">
-                  {formatExperienceDateRange(falkondataExperience) ??
+                  {formatExperienceDateRange(nicoznExperience) ??
                     "Dates unavailable"}
                 </span>
                 <span
                   className="experience-duration experience-tenure"
-                  aria-label={`Falkondata experience: ${falkondataDuration?.label ?? "Duration unavailable"}`}
+                  aria-label={`Nicozn Technologies experience: ${nicoznDuration?.label ?? "Duration unavailable"}`}
                 >
-                  {falkondataDuration?.label ?? "Duration unavailable"}
+                  {nicoznDuration?.label ?? "Duration unavailable"}
                 </span>
               </div>
             </div>
@@ -268,39 +265,41 @@ function Experience() {
                 Technologies used :
                 <span className="experience-tags">
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faReact} /> React.js
+                    <FontAwesomeIcon icon={faHtml5} /> HTML
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faNodeJs} /> Node.js
+                    <FontAwesomeIcon icon={faCss3Alt} /> CSS
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faAws} /> Amazon Web Services
+                    <FontAwesomeIcon icon={faJs} /> JavaScript
+                  </span>
+                  <span className="tech-badge">
+                    <FontAwesomeIcon icon={faFigma} /> Figma
+                  </span>
+                  <span className="tech-badge">
+                    <FontAwesomeIcon icon={faBolt} /> GSAP
+                  </span>
+                  <span className="tech-badge">
+                    <FontAwesomeIcon icon={faGoogle} /> Firebase
                   </span>
                 </span>
               </li>
 
               <li>
-                Built and enhanced <strong>React.js</strong> frontend features
-                and <strong>Node.js</strong> backend services for healthcare
-                workflows.
+                Built animated hero interactions with GSAP and deployed previews
+                with Firebase Hosting for stakeholder demos.
               </li>
+
               <li>
-                Integrated healthcare systems such as{" "}
-                <strong>AdvancedMD</strong> and <strong>SimpleChime</strong>,
-                implementing patient data synchronization, HL7 lab-result
-                processing, validation, retries, and error handling.
-              </li>
-              <li>
-                Investigated and resolved production issues involving{" "}
-                <strong>API failures, duplicate processing, timeouts,</strong>{" "}
-                and <strong>rate limits</strong> across healthcare workflows.
+                Documented responsive guidelines so future interns could extend
+                components without breaking layouts.
               </li>
             </ul>
 
             <div className="experience-actions">
               <a
                 className="btn"
-                href="https://falkondata.com/"
+                href="https://nicozn.com/"
                 target="_blank"
                 rel="noopener"
               >
