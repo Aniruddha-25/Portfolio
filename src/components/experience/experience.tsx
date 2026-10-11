@@ -3,9 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowUpRightFromSquare,
   faBolt,
+  faDatabase,
+  faPlug,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faAws,
+  faClaude,
   faCss3Alt,
   faFigma,
   faGoogle,
@@ -56,7 +59,7 @@ function Experience() {
       <h2>Experience</h2>
 
       <div className="experience-list">
-        {/* ----------- Experience 3 ----------- */}
+        {/* ----------- Experience 1 ----------- */}
         <article className="experience-card">
           <div className="experience-logo">
             <BlurImage src={falkondataLogo} alt="Falkondata Logo" />
@@ -102,6 +105,15 @@ function Experience() {
                   </span>
                   <span className="tech-badge">
                     <FontAwesomeIcon icon={faAws} /> Amazon Web Services
+                  </span>
+                  <span className="tech-badge">
+                    <FontAwesomeIcon icon={faPlug} /> Postman
+                  </span>
+                  <span className="tech-badge">
+                    <FontAwesomeIcon icon={faClaude} /> Claude
+                  </span>
+                  <span className="tech-badge">
+                    <FontAwesomeIcon icon={faDatabase} /> Microsoft SQL Server
                   </span>
                 </span>
               </li>
@@ -228,7 +240,7 @@ function Experience() {
             </div>
           </div>
         </article>
-        {/* ----------- Experience 1 ----------- */}
+        {/* ----------- Experience 3 ----------- */}
         <article className="experience-card">
           <div className="experience-logo">
             <BlurImage src={nicoznLogo} alt="Nicozn Technologies Logo" />

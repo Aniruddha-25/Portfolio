@@ -55,6 +55,7 @@ export const skillsList: SkillCategory[] = [
       { name: "MySQL", icon: "skills/database/mysql.svg" },
       { name: "PostgreSQL", icon: "skills/database/postgresql.svg" },
       { name: "MongoDB", icon: "skills/database/mongodb.svg" },
+      { name: "Microsoft SQL Server", icon: "skills/database/microsoft-sql-server.svg" },
     ],
   },
   {
@@ -81,12 +82,14 @@ export const skillsList: SkillCategory[] = [
     title: "Tools & Technologies",
     icon: faSquareGit,
     items: [
-      { name: "Linux (Ubuntu)", icon: "skills/tools-and-technologies/linux.svg" },
-      { name: "VS Code", icon: "skills/tools-and-technologies/vs-code.svg" },
       { name: "GitHub", icon: "skills/tools-and-technologies/github.svg" },
+      { name: "VS Code", icon: "skills/tools-and-technologies/vs-code.svg" },
+      { name: "Amazon Web Services", icon: "skills/tools-and-technologies/aws.svg" },
+      { name: "Postman", icon: "skills/tools-and-technologies/postman.svg" },    
+      { name: "Linux (Ubuntu)", icon: "skills/tools-and-technologies/linux.svg" },
       { name: "Jupyter Notebook", icon: "skills/tools-and-technologies/jupyter.svg" },
-      { name: "Google Colab", icon: "skills/tools-and-technologies/google-colab.svg" },
-    ],
+      { name: "Claude", icon: "skills/tools-and-technologies/claude.svg" },
+       ],
   },
 ].map((category) => ({
   ...category,
