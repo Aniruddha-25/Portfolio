@@ -1,20 +1,13 @@
 import "./home.css";
 import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BlurImage from "../blur_image/BlurImage";
-import {
-  faBriefcase,
-  faBullseye,
-  faDownload,
-  faHandshake,
-  faLocationDot,
-  faServer,
-} from "@fortawesome/free-solid-svg-icons";
-import { faFigma, faCopilot } from "@fortawesome/free-brands-svg-icons";
 import ContactModal from "./contact_modal/contact_modal";
 import { useAutoTyping } from "./useAutoTyping";
 import { professionalExperiences } from "../experience/experienceData";
 import { calculateTotalProfessionalExperience } from "../../utils/experienceCalculator";
+import { FaBriefcase, FaBullseye, FaDownload, FaFigma, FaHandshake, FaLocationDot } from "react-icons/fa6";
+import { SiGithubcopilot } from "react-icons/si";
+import { TbServerCog } from "react-icons/tb";
 
 
 function Home() {
@@ -99,12 +92,12 @@ const animatedPhrases = [
                 className="btn"
                 download="Aniruddha_Salvankar_Resume.pdf"
               >
-                <FontAwesomeIcon icon={faDownload} />
+                <FaDownload className="icon" />
                 <span>Download Resume</span>
               </a>
 
               <button className="btn" onClick={handleOpen}>
-                <FontAwesomeIcon icon={faHandshake} />
+                <FaHandshake className="icon" />
                 <span>Let's Connect</span>
               </button>
             </div>
@@ -115,7 +108,7 @@ const animatedPhrases = [
                 aria-label="Current professional experience"
               >
                 <span className="hero-label hero-experience-label">
-                  <FontAwesomeIcon icon={faBriefcase} />
+                  <FaBriefcase className="icon" />
                   <span>PROFESSIONAL EXPERIENCE</span>
                 </span>
                 <span className="hero-value hero-experience-title">
@@ -144,7 +137,7 @@ const animatedPhrases = [
 
               <div className="hero-meta-block hero-location">
                 <span className="hero-label" style={{ fontWeight: "bold" }}>
-                  <FontAwesomeIcon icon={faLocationDot} />
+                  <FaLocationDot className="icon" />
                   Location
                 </span>
 
@@ -153,18 +146,18 @@ const animatedPhrases = [
 
               <div className="hero-meta-block hero-focus">
                 <span className="hero-label" style={{ fontWeight: "bold" }}>
-                  <FontAwesomeIcon icon={faBullseye} /> Focus
+                  <FaBullseye className="icon" /> Focus
                 </span>
 
                 <ul className="hero-value hero-focus-list">
                   <li className="hero-focus-item">
-                    <FontAwesomeIcon icon={faCopilot} /> AI/ML Engineering
+                    <SiGithubcopilot className="icon" /> AI/ML Engineering
                   </li>
                   <li className="hero-focus-item">
-                    <FontAwesomeIcon icon={faServer} /> Full-Stack Development
+                    <TbServerCog className="icon" /> Full-Stack Development
                   </li>
                   <li className="hero-focus-item">
-                    <FontAwesomeIcon icon={faFigma} /> UI/UX Design
+                    <FaFigma className="icon" /> UI/UX Design
                   </li>
                 </ul>
               </div>

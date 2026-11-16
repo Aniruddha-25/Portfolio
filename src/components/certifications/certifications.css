@@ -122,10 +122,43 @@
 }
 
 .certification-issuer-line {
-  margin: 4px 0 6px 0;
+  margin: 10px 0 6px 0;
   font-size: 0.95em;
   color: var(--primary-lighter);
   letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.certification-provider {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.certification-provider .icon {
+  font-size: 1.4em;
+  vertical-align: middle;
+  /* Optical correction: icon boxes render ~0.5px below the text's cap-height center. */
+  transform: translateY(-0.025em);
+}
+
+/* Icon-specific optical centering: the ink of these two icons sits low inside
+   their SVG box (visual centroid ~0.54-0.55 of box height), so flexbox
+   centering alone makes them look low. Values = base nudge + extra correction. */
+.certification-provider .icon.certification-brand-udemy {
+  transform: translateY(-0.05em);
+}
+
+.certification-provider .icon.certification-brand-tcs {
+  transform: translateY(-0.06em);
+}
+
+.certification-provider-separator {
+  margin-right: 0;
+  opacity: 0.7;
 }
 
 .certification-actions {
@@ -214,7 +247,7 @@
   border-bottom: 2px solid var(--primary-overlay-medium-alt);
 }
 
-.certification-viewer-header i {
+.certification-viewer-header .icon {
   font-size: 24px;
   color: var(--primary-color);
 }
@@ -285,7 +318,7 @@
     padding: 15px;
   }
 
-  .certification-viewer-header i {
+  .certification-viewer-header .icon {
     font-size: 20px;
   }
 

@@ -163,8 +163,7 @@
   white-space: normal;
 }
 
-.hero-focus-item svg {
-  width: 16px;
+.hero-focus-item .icon {
   color: var(--primary-lighter);
   flex-shrink: 0;
 }

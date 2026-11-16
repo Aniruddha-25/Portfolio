@@ -1,8 +1,7 @@
 import "./education.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { educationList } from "./education_list";
 import BlurImage from "../blur_image/BlurImage";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 function Education() {
   return (
@@ -34,7 +33,7 @@ function Education() {
                   target="_blank"
                   rel="noopener"
                 >
-                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                  <FaArrowUpRightFromSquare className="icon" />
                   <span>Visit Website</span>
                 </a>
               </div>

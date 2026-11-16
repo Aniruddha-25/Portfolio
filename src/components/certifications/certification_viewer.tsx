@@ -1,9 +1,8 @@
 import { useEffect, useState, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCertificate, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "./certification-viewer.css";
+import { FaCertificate, FaXmark } from "react-icons/fa6";
 
 type Props = {
   open: boolean;
@@ -125,11 +124,11 @@ function CertificationViewer({ open, pdfUrl, onClose }: Props) {
         onClick={(e) => e.stopPropagation()}
       >
         <button className="certification-viewer-close" onClick={onClose}>
-          <FontAwesomeIcon icon={faXmark} />
+          <FaXmark className="icon" />
         </button>
 
         <div className="certification-viewer-header">
-          <FontAwesomeIcon icon={faCertificate} />
+          <FaCertificate className="icon" />
           <h3 className="certification-viewer-title">Certificate Preview</h3>
         </div>
 

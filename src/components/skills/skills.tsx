@@ -1,7 +1,7 @@
 import "./skills.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { skillsList } from "./skills_list";
 import BlurImage from "../blur_image/BlurImage";
+
 function Skills() {
   return (
     <section id="skills" className="section">
@@ -12,7 +12,7 @@ function Skills() {
           <li className="skill visible" key={index}>
             <div className="skill-item">
               <div className="skill-name" style={{ fontWeight: "bold" }}>
-                <FontAwesomeIcon icon={category.icon} /> {category.title}
+                <category.icon className="icon" /> {category.title}
               </div>
             </div>
 

@@ -1,42 +1,29 @@
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import {
-  faBrain,
-  faChartLine,
-  faCode,
-  faFlask,
-  faLayerGroup,
-  faServer,
-  faTable,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faCss3Alt,
-  faHtml5,
-  faJs,
-  faPython,
-} from "@fortawesome/free-brands-svg-icons";
+import { FaChartLine, FaCode, FaCss3Alt, FaHtml5, FaJs, FaPython } from "react-icons/fa6";
+import { SiDjango, SiFlask, SiNumpy, SiPandas, SiScikitlearn } from "react-icons/si";
+import type { IconType } from "react-icons";
 
 export type ProgramMeta = {
   label: string;
-  icon: IconDefinition;
+  icon: IconType;
 };
 
 export const programMetaMap: Record<string, ProgramMeta> = {
-  Python: { label: "Python", icon: faPython },
-  "Scikit-learn": { label: "Scikit-learn", icon: faBrain },
-  Pandas: { label: "Pandas", icon: faTable },
-  Flask: { label: "Flask", icon: faFlask },
-  HTML: { label: "HTML", icon: faHtml5 },
-  CSS: { label: "CSS", icon: faCss3Alt },
-  JavaScript: { label: "JavaScript", icon: faJs },
-  "HTML/CSS": { label: "HTML/CSS", icon: faHtml5 },
-  Django: { label: "Django", icon: faServer },
-  NumPy: { label: "NumPy", icon: faLayerGroup },
-  Matplotlib: { label: "Matplotlib", icon: faChartLine },
+  Python: { label: "Python", icon: FaPython },
+  "Scikit-learn": { label: "Scikit-learn", icon: SiScikitlearn },
+  Pandas: { label: "Pandas", icon: SiPandas },
+  Flask: { label: "Flask", icon: SiFlask },
+  HTML: { label: "HTML", icon: FaHtml5 },
+  CSS: { label: "CSS", icon: FaCss3Alt },
+  JavaScript: { label: "JavaScript", icon: FaJs },
+  "HTML/CSS": { label: "HTML/CSS", icon: FaHtml5 },
+  Django: { label: "Django", icon: SiDjango },
+  NumPy: { label: "NumPy", icon: SiNumpy },
+  Matplotlib: { label: "Matplotlib", icon: FaChartLine },
 };
 
 const defaultProgramMeta: ProgramMeta = {
   label: "Tool",
-  icon: faCode,
+  icon: FaCode,
 };
 
 export const getProgramMeta = (programName: string): ProgramMeta => {

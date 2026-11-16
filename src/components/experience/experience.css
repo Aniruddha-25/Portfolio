@@ -189,7 +189,7 @@
   transition: all 0.3s ease;
 }
 
-.tech-badge i {
+.tech-badge .icon {
   font-size: 1.1em;
   color: var(--text-white);
 }

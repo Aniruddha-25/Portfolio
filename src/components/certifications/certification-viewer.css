@@ -76,7 +76,7 @@
   border-bottom: 2px solid rgba(255,255,255,0.03);
 }
 
-.certification-viewer-header i {
+.certification-viewer-header .icon {
   font-size: 24px;
   color: #29a19c;
 }

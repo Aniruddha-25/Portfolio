@@ -1,9 +1,8 @@
 import "./projects.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import { projectsList } from "./projects_list";
 import { getProgramMeta } from "./project_programs";
 import BlurImage from "../blur_image/BlurImage";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 function Projects() {
   return (
@@ -28,7 +27,7 @@ function Projects() {
 
                       return (
                         <span className="project-program-chip" key={program}>
-                          <FontAwesomeIcon icon={programMeta.icon} />
+                          <programMeta.icon className="icon" />
                           <span>{programMeta.label}</span>
                         </span>
                       );
@@ -42,7 +41,7 @@ function Projects() {
                   className="project-link"
                   onClick={() => window.open(project.link, "_blank")}
                 >
-                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                  <FaArrowUpRightFromSquare className="icon" />
                   <span>View Source Code</span>
                 </button>
               </div>

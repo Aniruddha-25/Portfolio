@@ -59,11 +59,8 @@ Key advantages:
 "version": "0.0.0",
 "dependencies": {
   "@emailjs/browser": "^4.4.1",
-  "@fortawesome/free-brands-svg-icons": "^7.2.0",
-  "@fortawesome/free-regular-svg-icons": "^7.2.0",
-  "@fortawesome/free-solid-svg-icons": "^7.2.0",
-  "@fortawesome/react-fontawesome": "^3.3.0",
   "react": "^19.2.4",
+  "react-icons": "^5.7.0",
   "react-dom": "^19.2.4"
 }
 ```
@@ -73,21 +70,9 @@ Key advantages:
 
     → Used to avoid building a backend and directly send emails from the client side
 
-* **@fortawesome/react-fontawesome**: React wrapper for icons
+* **react-icons**: icon library (Lucide for UI icons, Simple Icons / Font Awesome 6 for brand logos)
 
-    → Used to easily integrate icons as reusable React components
-
-* **@fortawesome/free-solid-svg-icons**: UI/section/action icons
-
-    → Used for consistent UI icons like navigation, buttons, and sections
-
-* **@fortawesome/free-brands-svg-icons**: social and brand icons (GitHub, LinkedIn, Figma)
-
-    → Used to represent social platforms clearly and professionally
-
-* **@fortawesome/free-regular-svg-icons**: regular icon style set
-
-    → Used to provide additional icon styles when needed
+    → Used to render tree-shakeable SVG icons as React components
 
 * **react**: component-based UI framework
 

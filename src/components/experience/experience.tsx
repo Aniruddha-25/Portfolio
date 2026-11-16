@@ -1,24 +1,4 @@
 import "./experience.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowUpRightFromSquare,
-  faBolt,
-  faDatabase,
-  faPlug,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faAws,
-  faClaude,
-  faCss3Alt,
-  faFigma,
-  faGoogle,
-  faHtml5,
-  faJs,
-  faNodeJs,
-  faPostgresql,
-  faPython,
-  faReact,
-} from "@fortawesome/free-brands-svg-icons";
 
 import BlurImage from "../blur_image/BlurImage";
 import { internshipExperiences, professionalExperiences } from "./experienceData";
@@ -27,6 +7,8 @@ import {
   calculateProfessionalExperience,
   formatExperienceDateRange,
 } from "../../utils/experienceCalculator";
+import { FaArrowUpRightFromSquare, FaAws, FaCss3Alt, FaDatabase, FaFigma, FaGoogle, FaHtml5, FaJs, FaNodeJs, FaReact } from "react-icons/fa6";
+import { SiClaude, SiFlask, SiGsap, SiPostgresql, SiPostman } from "react-icons/si";
 
 function Experience() {
   const nicoznExperience = internshipExperiences.nicozn;
@@ -98,22 +80,22 @@ function Experience() {
                 Technologies used :
                 <span className="experience-tags">
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faReact} /> React.js
+                    <FaReact className="icon" /> React.js
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faNodeJs} /> Node.js
+                    <FaNodeJs className="icon" /> Node.js
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faAws} /> Amazon Web Services
+                    <FaAws className="icon" /> Amazon Web Services
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faPlug} /> Postman
+                    <SiPostman className="icon" /> Postman
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faClaude} /> Claude
+                    <SiClaude className="icon" /> Claude
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faDatabase} /> Microsoft SQL Server
+                    <FaDatabase className="icon" /> Microsoft SQL Server
                   </span>
                 </span>
               </li>
@@ -143,7 +125,7 @@ function Experience() {
                 target="_blank"
                 rel="noopener"
               >
-                <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                <FaArrowUpRightFromSquare className="icon" />
                 <span>Visit Website</span>
               </a>
             </div>
@@ -196,22 +178,22 @@ function Experience() {
                 Technologies used :
                 <span className="experience-tags">
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faHtml5} /> HTML
+                    <FaHtml5 className="icon" /> HTML
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faCss3Alt} /> CSS
+                    <FaCss3Alt className="icon" /> CSS
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faJs} /> JavaScript
+                    <FaJs className="icon" /> JavaScript
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faNodeJs} /> Node.js
+                    <FaNodeJs className="icon" /> Node.js
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faPython} /> Flask
+                    <SiFlask className="icon" /> Flask
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faPostgresql} /> PostgreSQL
+                    <SiPostgresql className="icon" /> PostgreSQL
                   </span>
                 </span>
               </li>
@@ -234,7 +216,7 @@ function Experience() {
                 target="_blank"
                 rel="noopener"
               >
-                <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                <FaArrowUpRightFromSquare className="icon" />
                 <span>Visit Website</span>
               </a>
             </div>
@@ -277,22 +259,22 @@ function Experience() {
                 Technologies used :
                 <span className="experience-tags">
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faHtml5} /> HTML
+                    <FaHtml5 className="icon" /> HTML
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faCss3Alt} /> CSS
+                    <FaCss3Alt className="icon" /> CSS
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faJs} /> JavaScript
+                    <FaJs className="icon" /> JavaScript
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faFigma} /> Figma
+                    <FaFigma className="icon" /> Figma
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faBolt} /> GSAP
+                    <SiGsap className="icon" /> GSAP
                   </span>
                   <span className="tech-badge">
-                    <FontAwesomeIcon icon={faGoogle} /> Firebase
+                    <FaGoogle className="icon" /> Firebase
                   </span>
                 </span>
               </li>
@@ -315,7 +297,7 @@ function Experience() {
                 target="_blank"
                 rel="noopener"
               >
-                <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                <FaArrowUpRightFromSquare className="icon" />
                 <span>Visit Website</span>
               </a>
             </div>

@@ -428,7 +428,7 @@
     min-width: 60px;
   }
 
-  .contact-glass-icon i {
+  .contact-glass-icon .icon {
     font-size: 20px;
   }
 
@@ -1153,7 +1153,7 @@
     margin-right: 8px;
   }
 
-  .contact-glass-icon i {
+  .contact-glass-icon .icon {
     font-size: 16px;
   }
 
@@ -1279,7 +1279,7 @@
     min-width: 30px;
   }
 
-  .contact-glass-icon i {
+  .contact-glass-icon .icon {
     font-size: 13px;
   }
 }

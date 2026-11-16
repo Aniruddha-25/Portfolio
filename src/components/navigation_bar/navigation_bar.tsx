@@ -1,19 +1,7 @@
 import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAddressCard,
-  faBrain,
-  faBuildingUser,
-  faCertificate,
-  faComment,
-  faGraduationCap,
-  faHome,
-  faLaptop,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
-import { faGitAlt } from "@fortawesome/free-brands-svg-icons";
 
 import useNavigation from "./useNavigation";
+import { FaAddressCard, FaBrain, FaBuildingUser, FaCertificate, FaComment, FaGitAlt, FaGraduationCap, FaHouse, FaLaptop, FaUser } from "react-icons/fa6";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -36,53 +24,53 @@ function Navbar() {
       {/* Sidebar */}
       <nav className={`sidebar ${open ? "active" : ""}`}>
         <div className="logo">
-          <FontAwesomeIcon icon={faLaptop} /> Portfolio
+          <FaLaptop className="icon" /> Portfolio
         </div>
 
         <ul>
           <li>
             <a href="#home" onClick={closeSidebar}>
-              <FontAwesomeIcon icon={faHome} /> Home
+              <FaHouse className="icon" /> Home
             </a>
           </li>
           <li>
             <a href="#about" onClick={closeSidebar}>
-              <FontAwesomeIcon icon={faUser} /> About
+              <FaUser className="icon" /> About
             </a>
           </li>
           <li>
             <a href="#experience" onClick={closeSidebar}>
-              <FontAwesomeIcon icon={faBuildingUser} /> Experience
+              <FaBuildingUser className="icon" /> Experience
             </a>
           </li>
           <li>
             <a href="#skills" onClick={closeSidebar}>
-              <FontAwesomeIcon icon={faBrain} /> Skills
+              <FaBrain className="icon" /> Skills
             </a>
           </li>
           <li>
             <a href="#certifications" onClick={closeSidebar}>
-              <FontAwesomeIcon icon={faCertificate} /> Certifications
+              <FaCertificate className="icon" /> Certifications
             </a>
           </li>
           <li>
             <a href="#education" onClick={closeSidebar}>
-              <FontAwesomeIcon icon={faGraduationCap} /> Education
+              <FaGraduationCap className="icon" /> Education
             </a>
           </li>
           <li>
             <a href="#portfolio" onClick={closeSidebar}>
-              <FontAwesomeIcon icon={faGitAlt} /> Projects
+              <FaGitAlt className="icon" /> Projects
             </a>
           </li>
           <li>
             <a href="#contact" onClick={closeSidebar}>
-              <FontAwesomeIcon icon={faAddressCard} /> Contact
+              <FaAddressCard className="icon" /> Contact
             </a>
           </li>
           <li>
             <a href="#feedback" onClick={closeSidebar}>
-              <FontAwesomeIcon icon={faComment} /> Feedback
+              <FaComment className="icon" /> Feedback
             </a>
           </li>
         </ul>
