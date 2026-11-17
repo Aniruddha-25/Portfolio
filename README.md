@@ -31,10 +31,19 @@ The page has nine sections, reached from a fixed sidebar: Home, About, Experienc
 ## Technology Stack
 
 ```mermaid
-flowchart LR
-    subgraph CORE["Core"]
-        REACT["React 19"]
-        TS["TypeScript"]
+flowchart TB
+    subgraph CICD["CI and hosting"]
+        ACTIONS["GitHub Actions"]
+        PAGES["GitHub Pages"]
+    end
+
+    subgraph TOOLING["Tooling"]
+        VITE["Vite 8"]
+        ESLINT["ESLint"]
+    end
+
+    subgraph INTEG["Integration"]
+        EMAIL["EmailJS"]
     end
 
     subgraph UI["UI"]
@@ -43,25 +52,19 @@ flowchart LR
         PROG["react-circular-progressbar"]
     end
 
-    subgraph INTEG["Integration"]
-        EMAIL["EmailJS"]
+    subgraph CORE["Core"]
+        REACT["React 19"]
+        TS["TypeScript"]
     end
 
-    subgraph TOOLING["Tooling"]
-        VITE["Vite 8"]
-        ESLINT["ESLint"]
-    end
+    REACT ~~~ VITE
+    CSS ~~~ ACTIONS
 
-    subgraph CICD["CI and hosting"]
-        ACTIONS["GitHub Actions"]
-        PAGES["GitHub Pages"]
-    end
-
-    classDef core fill:#dbeafe,stroke:#2563eb,color:#0f172a
-    classDef ui fill:#fce7f3,stroke:#db2777,color:#0f172a
-    classDef integ fill:#fef9c3,stroke:#ca8a04,color:#0f172a
-    classDef tool fill:#dcfce7,stroke:#16a34a,color:#0f172a
-    classDef cicd fill:#f3e8ff,stroke:#9333ea,color:#0f172a
+    classDef core fill:#bfdbfe,stroke:#2563eb,stroke-width:1.5px,color:#0f172a
+    classDef ui fill:#e9d5ff,stroke:#9333ea,stroke-width:1.5px,color:#0f172a
+    classDef integ fill:#fde68a,stroke:#d97706,stroke-width:1.5px,color:#0f172a
+    classDef tool fill:#bbf7d0,stroke:#16a34a,stroke-width:1.5px,color:#0f172a
+    classDef cicd fill:#c7d2fe,stroke:#4f46e5,stroke-width:1.5px,color:#0f172a
 
     class REACT,TS core
     class CSS,ICONS,PROG ui
@@ -69,11 +72,11 @@ flowchart LR
     class VITE,ESLINT tool
     class ACTIONS,PAGES cicd
 
-    style CORE fill:transparent,stroke:#2563eb,stroke-width:2px
-    style UI fill:transparent,stroke:#db2777,stroke-width:2px
-    style INTEG fill:transparent,stroke:#ca8a04,stroke-width:2px
-    style TOOLING fill:transparent,stroke:#16a34a,stroke-width:2px
-    style CICD fill:transparent,stroke:#9333ea,stroke-width:2px
+    style CORE fill:#eff6ff,stroke:#2563eb,stroke-width:2px,color:#0f172a
+    style UI fill:#faf5ff,stroke:#9333ea,stroke-width:2px,color:#0f172a
+    style INTEG fill:#fffbeb,stroke:#d97706,stroke-width:2px,color:#0f172a
+    style TOOLING fill:#f0fdf4,stroke:#16a34a,stroke-width:2px,color:#0f172a
+    style CICD fill:#eef2ff,stroke:#4f46e5,stroke-width:2px,color:#0f172a
 ```
 
 | Dependency | Why it is used |
@@ -94,66 +97,65 @@ React features used directly: `useState`, `useEffect`, `useRef` and `StrictMode`
 ```mermaid
 flowchart TB
     subgraph ENTRY["Entry"]
+        direction LR
         HTML["index.html"] --> MAIN["main.tsx"] --> APP["App"]
     end
 
     subgraph SHELL["Page shell"]
+        direction TB
         NAVBAR["Navbar and useNavigation"]
         HOME["Home, ContactModal, useAutoTyping"]
         LAZY["LazySection and SectionLoadBoundary"]
     end
 
     subgraph SECTIONS["Lazy sections"]
+        direction LR
         SEC["About, Experience, Skills, Certifications, Education, Projects, Contact, Feedback"]
-    end
 
-    subgraph SHARED["Shared loading"]
-        QUEUES["sectionQueue and imageQueue"]
-        BLUR["BlurImage"]
+        subgraph SHARED["Shared loading"]
+            direction TB
+            QUEUES["sectionQueue and imageQueue"] <--> BLUR["BlurImage"]
+        end
+
+        SEC -->|"images"| SHARED
     end
 
     subgraph CONTENT["Content and assets"]
-        DATA["Typed data modules"]
-        IMGS["src/assets/img"]
+        direction TB
+        DATA["Typed data modules"] -->|"import.meta.glob"| IMGS["src/assets/img"]
         PUBLIC["public/ PDFs and resume"]
         STYLES["Global and per-component CSS"]
     end
 
-    EMAILJS["EmailJS service"]
+    subgraph INTEG["Integration"]
+        EMAILJS["EmailJS service"]
+    end
 
-    APP --> NAVBAR
-    APP --> HOME
-    APP --> LAZY
-    LAZY --> SEC
-    LAZY <--> QUEUES
-    SEC --> BLUR
-    HOME --> BLUR
-    BLUR <--> QUEUES
-    SEC --> DATA
-    DATA -->|"import.meta.glob"| IMGS
-    SEC -.->|"fetch PDFs"| PUBLIC
-    SEC -->|"Feedback form"| EMAILJS
-    SEC --> STYLES
+    ENTRY --> SHELL
+    SHELL -->|"mounts via LazySection"| SECTIONS
+    SECTIONS -->|"data, PDFs, CSS"| CONTENT
+    SECTIONS -->|"feedback form"| INTEG
 
-    classDef entry fill:#dbeafe,stroke:#2563eb,color:#0f172a
-    classDef shell fill:#e2e8f0,stroke:#475569,color:#0f172a
-    classDef section fill:#dcfce7,stroke:#16a34a,color:#0f172a
-    classDef shared fill:#fce7f3,stroke:#db2777,color:#0f172a
-    classDef content fill:#ffedd5,stroke:#ea580c,color:#0f172a
-    classDef ext fill:#fef9c3,stroke:#ca8a04,color:#0f172a
+    classDef entry fill:#bfdbfe,stroke:#2563eb,stroke-width:1.5px,color:#0f172a
+    classDef comp fill:#e9d5ff,stroke:#9333ea,stroke-width:1.5px,color:#0f172a
+    classDef shared fill:#d8b4fe,stroke:#7e22ce,stroke-width:1.5px,color:#0f172a
+    classDef content fill:#fed7aa,stroke:#ea580c,stroke-width:1.5px,color:#0f172a
+    classDef integ fill:#fde68a,stroke:#d97706,stroke-width:1.5px,color:#0f172a
 
     class HTML,MAIN,APP entry
-    class NAVBAR,HOME,LAZY shell
-    class SEC section
+    class NAVBAR,HOME,LAZY,SEC comp
     class QUEUES,BLUR shared
     class DATA,IMGS,PUBLIC,STYLES content
-    class EMAILJS ext
+    class EMAILJS integ
 
-    style ENTRY fill:transparent,stroke:#2563eb,stroke-width:2px
-    style SHELL fill:transparent,stroke:#475569,stroke-width:2px
-    style SECTIONS fill:transparent,stroke:#16a34a,stroke-width:2px
-    style SHARED fill:transparent,stroke:#db2777,stroke-width:2px
-    style CONTENT fill:transparent,stroke:#ea580c,stroke-width:2px
+    style ENTRY fill:#eff6ff,stroke:#2563eb,stroke-width:2px,color:#0f172a
+    style SHELL fill:#faf5ff,stroke:#9333ea,stroke-width:2px,color:#0f172a
+    style SECTIONS fill:#faf5ff,stroke:#9333ea,stroke-width:2px,color:#0f172a
+    style SHARED fill:#f3e8ff,stroke:#7e22ce,stroke-width:2px,color:#0f172a
+    style CONTENT fill:#fff7ed,stroke:#ea580c,stroke-width:2px,color:#0f172a
+    style INTEG fill:#fffbeb,stroke:#d97706,stroke-width:2px,color:#0f172a
+
+    linkStyle default stroke:#64748b,stroke-width:2px
 ```
 
 ### Progressive loading
@@ -229,10 +231,11 @@ The base path is set in [`vite.config.ts`](vite.config.ts): `/Portfolio/` when `
 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) deploys on every push to `main` and can also be started manually (`workflow_dispatch`). It uses one concurrency group (`pages`) and cancels superseded runs.
 
 ```mermaid
-flowchart TB
+flowchart LR
     TRIGGER["Push to main or manual run"]
 
     subgraph BUILDJOB["Job: build"]
+        direction TB
         CHECKOUT["Checkout"] --> NODE["Setup Node 22 with npm cache"]
         NODE --> CI["npm ci"]
         CI --> BUILD["npm run build with GH_PAGES=1"]
@@ -240,27 +243,30 @@ flowchart TB
     end
 
     subgraph DEPLOYJOB["Job: deploy"]
+        direction TB
         ENV["Environment github-pages"] --> DEPLOY["actions/deploy-pages"]
     end
 
-    LIVE["Live site - aniruddha-25.github.io/Portfolio"]
+    LIVE["Live site on GitHub Pages"]
 
-    TRIGGER --> CHECKOUT
-    ARTIFACT -->|"needs: build"| ENV
-    DEPLOY --> LIVE
+    TRIGGER --> BUILDJOB
+    BUILDJOB -->|"needs: build"| DEPLOYJOB
+    DEPLOYJOB --> LIVE
 
-    classDef trigger fill:#e2e8f0,stroke:#475569,color:#0f172a
-    classDef build fill:#dbeafe,stroke:#2563eb,color:#0f172a
-    classDef deploy fill:#dcfce7,stroke:#16a34a,color:#0f172a
-    classDef live fill:#ffedd5,stroke:#ea580c,color:#0f172a
+    classDef trigger fill:#e2e8f0,stroke:#475569,stroke-width:1.5px,color:#0f172a
+    classDef build fill:#bbf7d0,stroke:#16a34a,stroke-width:1.5px,color:#0f172a
+    classDef deploy fill:#c7d2fe,stroke:#4f46e5,stroke-width:1.5px,color:#0f172a
+    classDef live fill:#bfdbfe,stroke:#2563eb,stroke-width:1.5px,color:#0f172a
 
     class TRIGGER trigger
     class CHECKOUT,NODE,CI,BUILD,ARTIFACT build
     class ENV,DEPLOY deploy
     class LIVE live
 
-    style BUILDJOB fill:transparent,stroke:#2563eb,stroke-width:2px
-    style DEPLOYJOB fill:transparent,stroke:#16a34a,stroke-width:2px
+    style BUILDJOB fill:#f0fdf4,stroke:#16a34a,stroke-width:2px,color:#0f172a
+    style DEPLOYJOB fill:#eef2ff,stroke:#4f46e5,stroke-width:2px,color:#0f172a
+
+    linkStyle default stroke:#64748b,stroke-width:2px
 ```
 
 For the workflow to publish, **Settings → Pages → Source** must be set to **GitHub Actions**.
