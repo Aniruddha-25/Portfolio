@@ -31,30 +31,30 @@ The page has nine sections, reached from a fixed sidebar: Home, About, Experienc
 ## Technology Stack
 
 ```mermaid
-flowchart TB
-    subgraph CICD["CI and hosting"]
-        ACTIONS["GitHub Actions"]
-        PAGES["GitHub Pages"]
+flowchart LR
+    subgraph CICD["`**Continuous Integration (CI) and Hosting**`"]
+        ACTIONS["`**GitHub Actions**`"]
+        PAGES["`**GitHub Pages**`"]
     end
 
-    subgraph TOOLING["Tooling"]
-        VITE["Vite 8"]
-        ESLINT["ESLint"]
+    subgraph TOOLING["`**Tooling**`"]
+        VITE["`**Vite 8**`"]
+        ESLINT["`**ESLint**`"]
     end
 
-    subgraph INTEG["Integration"]
-        EMAIL["EmailJS"]
+    subgraph INTEG["`**Integration**`"]
+        EMAIL["`**EmailJS**`"]
     end
 
-    subgraph UI["UI"]
-        CSS["Plain CSS"]
-        ICONS["react-icons"]
-        PROG["react-circular-progressbar"]
+    subgraph UI["`**User Interface (UI)**`"]
+        CSS["`**Plain CSS**`"]
+        ICONS["`**react-icons**`"]
+        PROG["`**react-circular-progressbar**`"]
     end
 
-    subgraph CORE["Core"]
-        REACT["React 19"]
-        TS["TypeScript"]
+    subgraph CORE["`**Core**`"]
+        REACT["`**React 19**`"]
+        TS["`**TypeScript**`"]
     end
 
     REACT ~~~ VITE
@@ -96,45 +96,45 @@ React features used directly: `useState`, `useEffect`, `useRef` and `StrictMode`
 
 ```mermaid
 flowchart TB
-    subgraph ENTRY["Entry"]
-        direction LR
-        HTML["index.html"] --> MAIN["main.tsx"] --> APP["App"]
-    end
-
-    subgraph SHELL["Page shell"]
+    subgraph ENTRY["`**Entry**`"]
         direction TB
-        NAVBAR["Navbar and useNavigation"]
-        HOME["Home, ContactModal, useAutoTyping"]
-        LAZY["LazySection and SectionLoadBoundary"]
+        HTML["`**index.html**`"] --> MAIN["`**main.tsx**`"] --> APP["`**App**`"]
     end
 
-    subgraph SECTIONS["Lazy sections"]
-        direction LR
-        SEC["About, Experience, Skills, Certifications, Education, Projects, Contact, Feedback"]
+    subgraph SHELL["`**Page shell**`"]
 
-        subgraph SHARED["Shared loading"]
+        NAVBAR["`**Navbar and useNavigation**`"]
+        HOME["`**Home, Contact Modal, useAutoTyping**`"]
+        LAZY["`**LazySection and SectionLoadBoundary**`"]
+    end
+
+    subgraph SECTIONS["`**Lazy sections**`"]
+        direction TB
+        SEC["`**About, Experience, Skills, Certifications, Education, Projects, Contact, Feedback**`"]
+
+        subgraph SHARED["`**Shared loading**`"]
             direction TB
-            QUEUES["sectionQueue and imageQueue"] <--> BLUR["BlurImage"]
+            QUEUES["`**sectionQueue and imageQueue**`"] <--> BLUR["`**BlurImage**`"]
         end
 
-        SEC -->|"images"| SHARED
+        SEC -->|"`**images**`"| SHARED
     end
 
-    subgraph CONTENT["Content and assets"]
+    subgraph CONTENT["`**Content and assets**`"]
         direction TB
-        DATA["Typed data modules"] -->|"import.meta.glob"| IMGS["src/assets/img"]
-        PUBLIC["public/ PDFs and resume"]
-        STYLES["Global and per-component CSS"]
+        DATA["`**Typed data modules**`"] -->|"`**import.meta.glob**`"| IMGS["`**src/assets/img**`"]
+        PUBLIC["`**public/ PDFs and resume**`"]
+        STYLES["`**Global and per-component CSS**`"]
     end
 
-    subgraph INTEG["Integration"]
-        EMAILJS["EmailJS service"]
+    subgraph INTEG["`**Integration**`"]
+        EMAILJS["`**EmailJS service**`"]
     end
 
     ENTRY --> SHELL
-    SHELL -->|"mounts via LazySection"| SECTIONS
-    SECTIONS -->|"data, PDFs, CSS"| CONTENT
-    SECTIONS -->|"feedback form"| INTEG
+    SHELL -->|"`**mounts via LazySection**`"| SECTIONS
+    SECTIONS -->|"`**data, PDFs, CSS**`"| CONTENT
+    SECTIONS -->|"`**feedback form**`"| INTEG
 
     classDef entry fill:#bfdbfe,stroke:#2563eb,stroke-width:1.5px,color:#0f172a
     classDef comp fill:#e9d5ff,stroke:#9333ea,stroke-width:1.5px,color:#0f172a
@@ -231,26 +231,26 @@ The base path is set in [`vite.config.ts`](vite.config.ts): `/Portfolio/` when `
 [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) deploys on every push to `main` and can also be started manually (`workflow_dispatch`). It uses one concurrency group (`pages`) and cancels superseded runs.
 
 ```mermaid
-flowchart LR
-    TRIGGER["Push to main or manual run"]
+flowchart TB
+    TRIGGER["`**Push to main or manual run**`"]
 
-    subgraph BUILDJOB["Job: build"]
+    subgraph BUILDJOB["`**Job: build**`"]
         direction TB
-        CHECKOUT["Checkout"] --> NODE["Setup Node 22 with npm cache"]
-        NODE --> CI["npm ci"]
-        CI --> BUILD["npm run build with GH_PAGES=1"]
-        BUILD --> ARTIFACT["Upload dist/ as Pages artifact"]
+        CHECKOUT["`**Checkout**`"] --> NODE["`**Setup Node 22 with npm cache**`"]
+        NODE --> CI["`**npm ci**`"]
+        CI --> BUILD["`**npm run build with GH_PAGES=1**`"]
+        BUILD --> ARTIFACT["`**Upload dist/ as Pages artifact**`"]
     end
 
-    subgraph DEPLOYJOB["Job: deploy"]
+    subgraph DEPLOYJOB["`**Job: deploy**`"]
         direction TB
-        ENV["Environment github-pages"] --> DEPLOY["actions/deploy-pages"]
+        ENV["`**Environment github-pages**`"] --> DEPLOY["`**actions/deploy-pages**`"]
     end
 
-    LIVE["Live site on GitHub Pages"]
+    LIVE["`**Live site on GitHub Pages**`"]
 
     TRIGGER --> BUILDJOB
-    BUILDJOB -->|"needs: build"| DEPLOYJOB
+    BUILDJOB -->|"`**needs: build**`"| DEPLOYJOB
     DEPLOYJOB --> LIVE
 
     classDef trigger fill:#e2e8f0,stroke:#475569,stroke-width:1.5px,color:#0f172a
