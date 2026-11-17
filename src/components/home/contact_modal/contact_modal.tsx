@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "./contact_modal.css";
-import { FaEnvelope, FaGithub, FaHandshake, FaInstagram, FaLinkedin, FaWhatsapp, FaXmark } from "react-icons/fa6";
+import { FaGithub, FaHandshake, FaInstagram, FaLinkedin, FaWhatsapp, FaXmark } from "react-icons/fa6";
+import { SiGmail } from "react-icons/si";
 
 type Props = {
   open: boolean;
@@ -49,7 +50,7 @@ function ContactModal({ open, onClose }: Props) {
             className="contact-model-option gmail"
           >
             <span className="contact-model-icon">
-              <FaEnvelope className="icon" />
+              <SiGmail className="icon" />
             </span>
             <div>
               <div className="contact-model-label">GMAIL</div>

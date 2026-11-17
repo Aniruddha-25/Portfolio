@@ -67,40 +67,18 @@
   color: inherit;
 }
 
+/* Circle background and brand icon colours are shared with the modal (see base.css) */
 .contact-glass-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
-  box-shadow: 0 4px 15px var(--primary-overlay-medium-alt);
   padding: 0;
   margin-right: 18px;
   transition: all 0.3s ease;
-  flex-shrink: 0;
 }
 
 .contact-glass-icon .icon {
-  font-size: 24px;
+  font-size: 30px;
   color: var(--text-white);
-}
-
-/* Individual icon colors */
-.contact-glass-icon.icon-phone {
-  background: linear-gradient(135deg, var(--icon-phone-start) 0%, var(--icon-phone-end) 100%);
-  box-shadow: 0 4px 15px var(--icon-phone-shadow);
-}
-
-.contact-glass-icon.icon-email {
-  background: linear-gradient(135deg, var(--icon-email-start) 0%, var(--icon-email-end) 100%);
-  box-shadow: 0 4px 15px var(--icon-email-shadow);
-}
-
-.contact-glass-icon.icon-linkedin {
-  background: linear-gradient(135deg, var(--icon-linkedin-start) 0%, var(--icon-linkedin-end) 100%);
-  box-shadow: 0 4px 15px var(--icon-linkedin-shadow);
 }
 
 .contact-glass-method:hover .contact-glass-icon.icon-phone {

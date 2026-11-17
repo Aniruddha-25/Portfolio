@@ -97,15 +97,10 @@
 .contact-model-icon {
   width: 58px;
   height: 58px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
 }
 
 .contact-model-icon .icon {
-  font-size: 28px;
+  font-size: 30px;
   color: #ffffff;
 }
 
@@ -135,25 +130,7 @@
   text-align: left;
 }
 
-.contact-model-option.gmail .contact-model-icon {
-  background: linear-gradient(135deg, #ff4c39, #c9231d);
-}
-
-.contact-model-option.github .contact-model-icon {
-  background: linear-gradient(135deg, #08122f, #0d1e4e);
-}
-
-.contact-model-option.linkedin .contact-model-icon {
-  background: linear-gradient(135deg, #34a8ff, #0077d6);
-}
-
-.contact-model-option.whatsapp .contact-model-icon {
-  background: linear-gradient(135deg, #36df7f, #1db95f);
-}
-
-.contact-model-option.instagram .contact-model-icon {
-  background: linear-gradient(135deg, #ffd974, #f55a4e 40%, #cd2ca8 70%, #5c51d9);
-}
+/* Circle background and brand icon colours are shared with the Contact section (see base.css) */
 
 @media (max-width: 700px) {
   .contact-model-card {
@@ -175,7 +152,7 @@
   }
 
   .contact-model-icon .icon {
-    font-size: 24px;
+    font-size: 28px;
   }
 }
 
@@ -225,7 +202,7 @@
   }
 
   .contact-model-icon .icon {
-    font-size: 20px;
+    font-size: 26px;
   }
 
   .contact-model-label {

@@ -81,12 +81,11 @@
   --instagram-blue: #5851DB;
   
   /* === Icon Colors (Contact Section) === */
-  --icon-phone-start: #4caf50;
-  --icon-phone-end: #388e3c;
-  --icon-email-start: #f44336;
-  --icon-email-end: #d32f2f;
-  --icon-linkedin-start: #0077b5;
-  --icon-linkedin-end: #005885;
+  --icon-surface: #ffffff;
+  --icon-surface-shadow: rgba(0, 0, 0, 0.35);
+  --icon-phone-color: #22c55e;
+  --icon-linkedin-color: #0a66c2;
+  --icon-github-color: #111111;
   
   /* === Additional Shadow/Effect Colors === */
   --shadow-extra-light: rgba(0, 0, 0, 0.1);
@@ -104,12 +103,9 @@
   --tech-badge-border: rgba(255, 255, 255, 0.3);
   --tech-badge-hover-bg: rgba(255, 255, 255, 0.2);
   --tech-badge-hover-shadow: rgba(255, 255, 255, 0.2);
-  --icon-phone-shadow: rgba(76, 175, 80, 0.3);
-  --icon-phone-shadow-hover: rgba(76, 175, 80, 0.5);
-  --icon-email-shadow: rgba(244, 67, 54, 0.3);
-  --icon-email-shadow-hover: rgba(244, 67, 54, 0.5);
-  --icon-linkedin-shadow: rgba(0, 119, 181, 0.3);
-  --icon-linkedin-shadow-hover: rgba(0, 119, 181, 0.5);
+  --icon-phone-shadow-hover: rgba(34, 197, 94, 0.4);
+  --icon-email-shadow-hover: rgba(234, 67, 53, 0.4);
+  --icon-linkedin-shadow-hover: rgba(10, 102, 194, 0.4);
   --bg-modal-overlay: rgba(42, 42, 59, 0.98);
   --bg-modal-alt: rgba(35, 35, 52, 0.98);
 }

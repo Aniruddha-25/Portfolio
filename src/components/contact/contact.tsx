@@ -1,5 +1,6 @@
 import "./contact.css"
-import { FaAddressBook, FaEnvelope, FaLinkedin, FaPhone } from "react-icons/fa6";
+import { FaAddressBook, FaLinkedin, FaPhone } from "react-icons/fa6";
+import { SiGmail } from "react-icons/si";
 
 function Contact() {
   return (
@@ -27,7 +28,7 @@ function Contact() {
           href="mailto:aniruddha.salvankar2523@gmail.com"
         >
           <span className="contact-glass-icon icon-email">
-            <FaEnvelope className="icon" />
+            <SiGmail className="icon" />
           </span>
           <div>
             <div className="contact-label">Email</div>

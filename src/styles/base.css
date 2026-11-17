@@ -218,6 +218,45 @@ body {
   }
 }
 
+/* Shared contact icon styling (Contact section + "Let's Connect" modal):
+   white circle with a brand-coloured icon */
+.contact-glass-icon,
+.contact-model-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--icon-surface);
+  box-shadow: 0 4px 15px var(--icon-surface-shadow);
+}
+
+.contact-glass-icon.icon-email .icon,
+.contact-model-option.gmail .contact-model-icon .icon {
+  color: var(--gmail-primary);
+}
+
+.contact-glass-icon.icon-phone .icon {
+  color: var(--icon-phone-color);
+}
+
+.contact-glass-icon.icon-linkedin .icon,
+.contact-model-option.linkedin .contact-model-icon .icon {
+  color: var(--icon-linkedin-color);
+}
+
+.contact-model-option.github .contact-model-icon .icon {
+  color: var(--icon-github-color);
+}
+
+.contact-model-option.whatsapp .contact-model-icon .icon {
+  color: var(--whatsapp-primary);
+}
+
+.contact-model-option.instagram .contact-model-icon .icon {
+  color: var(--instagram-pink);
+}
+
 /* Shared react-icons styling (replaces Font Awesome's .svg-inline--fa) */
 .icon {
   display: inline-block;
