@@ -68,6 +68,22 @@ export const projectsList: Project[] = [
     image: "projects/retailer-game-stock-advisor.webp",
     link: "https://github.com/Aniruddha-25/Retailer_Game_Stock_Advisor",
   },
+
+   {
+    title: "Unit Converter",
+    description:
+      "A web app for converting units across various categories.",
+    programsUsed: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "HTML",
+      "CSS",
+      "Lucide React",
+    ],
+    image: "projects/unit-converter.webp",
+    link: "https://github.com/Aniruddha-25/unit-converter",
+  },
 ].map((project) => ({
   ...project,
   image: resolveImage(project.image),

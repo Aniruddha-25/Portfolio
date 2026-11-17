@@ -1,5 +1,5 @@
-import { FaChartLine, FaCode, FaCss3Alt, FaHtml5, FaJs, FaPython } from "react-icons/fa6";
-import { SiDjango, SiFlask, SiNumpy, SiPandas, SiScikitlearn } from "react-icons/si";
+import { FaChartLine, FaCode, FaCss3Alt, FaHtml5, FaJs, FaPython, FaReact } from "react-icons/fa6";
+import { SiDjango, SiFlask, SiLucide, SiNumpy, SiPandas, SiScikitlearn, SiTypescript, SiVite } from "react-icons/si";
 import type { IconType } from "react-icons";
 
 export type ProgramMeta = {
@@ -15,10 +15,13 @@ export const programMetaMap: Record<string, ProgramMeta> = {
   HTML: { label: "HTML", icon: FaHtml5 },
   CSS: { label: "CSS", icon: FaCss3Alt },
   JavaScript: { label: "JavaScript", icon: FaJs },
-  "HTML/CSS": { label: "HTML/CSS", icon: FaHtml5 },
   Django: { label: "Django", icon: SiDjango },
   NumPy: { label: "NumPy", icon: SiNumpy },
   Matplotlib: { label: "Matplotlib", icon: FaChartLine },
+  React: { label: "React", icon: FaReact },
+  TypeScript: { label: "TypeScript", icon: SiTypescript },
+  Vite: { label: "Vite", icon: SiVite },
+  "Lucide React": { label: "Lucide React", icon: SiLucide },
 };
 
 const defaultProgramMeta: ProgramMeta = {

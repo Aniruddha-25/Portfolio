@@ -1,6 +1,6 @@
 /* Projects Section */
 #portfolio {
-  padding: 40px 30px;
+  padding: 48px 40px;
   margin: 40px auto;
   max-width: 2000px;
   width: 100%;
@@ -20,9 +20,9 @@
 
 .project-cards-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 32px;
-  row-gap: 40px;
+  grid-template-columns: repeat(2, minmax(0, 360px));
+  gap: 56px;
+  justify-content: center;
   justify-items: center;
   width: 100%;
   max-width: 2000px;
@@ -32,9 +32,9 @@
 .project-card {
   position: relative;
   width: 100%;
-  max-width: 340px;
-  min-width: 280px;
-  height: 470px;
+  max-width: 360px;
+  min-width: 0;
+  aspect-ratio: 2 / 3; /* matches the 1024x1536 project images, so no cropping */
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 4px 16px var(--shadow-soft);
